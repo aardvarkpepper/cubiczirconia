@@ -36,6 +36,7 @@ CREATE TABLE themes (
     theme_text_color VARCHAR(20) NOT NULL,
     theme_text_size VARCHAR(20) NOT NULL,
     theme_background VARCHAR(20) NOT NULL,
+    user_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
 );
 

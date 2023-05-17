@@ -11,11 +11,11 @@ VALUES
 ('neo', 'matrix123', 0, '2023-05-07', '1999-03-31', '2023-01-07', 'Neo (The Matrix)', 'https://example.com/neo.jpg', 'Premium', 1, 'neo@thematrix.com', 'Destiny is not something we''ve invented, it''s something we''ve found.', '''Do you believe in fate, Neo?''  ''No.''  ''Why not?''  ''I don''t like the idea that I''m not in control of my life.'''),
 ('darth_vader', 'empire456', 0, '2023-05-08', '7-05-25', '2023-01-08', 'Darth Vader (Star Wars)', 'https://example.com/darth_vader.jpg', 'Free', 2, 'vader@empire.com', 'I find your lack of faith disturbing.', 'When I left you, I was but the learner.  Now I am the master.');
 
-INSERT INTO themes (theme_name, theme_display_size, theme_show_badges, theme_palette, theme_font, theme_text_color, theme_text_size, theme_background)
+INSERT INTO themes (theme_name, theme_display_size, theme_show_badges, theme_palette, theme_font, theme_text_color, theme_text_size, theme_background, user_id)
 VALUES
-('Fall Theme', 'Medium', true, 'Orange', 'Arial', 'Black', 'Medium', 'Brown'),
-('Winter Theme', 'Large', false, 'Blue', 'Verdana', 'White', 'Large', 'White'),
-('Spring Theme', 'Small', true, 'Green', 'Tahoma', 'Black', 'Small', 'Light Green');
+('Fall Theme', 'Medium', true, 'Orange', 'Arial', 'Black', 'Medium', 'Brown', 1),
+('Winter Theme', 'Large', false, 'Blue', 'Verdana', 'White', 'Large', 'White', 1),
+('Spring Theme', 'Small', true, 'Green', 'Tahoma', 'Black', 'Small', 'Light Green', 2);
 
 INSERT INTO badges (badge_display, badge_name, badge_description, badge_image_type, badge_image_local, badge_image_url)
 VALUES

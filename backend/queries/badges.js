@@ -11,16 +11,16 @@ const getAllBadges = async () => {
 }
 
 //show query
-const getOneBadge = async (badge_id) => {
+const getOneBadge = async (badgeId) => {
   try {
-    const oneBadge = await db.one("SELECT * FROM badges WHERE badge_id=$1;", badge_id);
+    const oneBadge = await db.one("SELECT * FROM badges WHERE badge_id=$1;", badgeId);
     return { success: true, payload: oneBadge };
   } catch (error) {
     return { success: false, payload: error };
   }
 }
 
-//create query
+//create query.  Field specific.
 const createBadge = async (badgeToAdd) => {
   const { 
     badge_display,
@@ -48,17 +48,17 @@ const createBadge = async (badgeToAdd) => {
 }
 
 //delete query
-const deleteBadge = async (badge_id) => {
+const deleteBadge = async (badgeId) => {
   try {
-    const deletedBadge = await db.one("DELETE FROM badges WHERE badge_id=$1 RETURNING *;", badge_id);
+    const deletedBadge = await db.one("DELETE FROM badges WHERE badge_id=$1 RETURNING *;", badgeId);
     return { success: true, payload: deletedBadge };
   } catch (error) {
     return { success: false, payload: error };
   }
 }
 
-//update query
-const updateBadge = async (badge_id, badgeToUpdate) => {
+//update query.  Field specific.
+const updateBadge = async (badgeId, badgeToUpdate) => {
   const { 
     badge_display,
     badge_name,
@@ -77,14 +77,13 @@ const updateBadge = async (badge_id, badgeToUpdate) => {
   try {
     const updatedBadge = await db.one(
       "UPDATE badges SET badge_display=$1, badge_name=$2, badge_description=$3, badge_image_type=$4, badge_image_local=$5, WHERE badge_id=$6 RETURNING *;",
-      [badgeDisplay, badgeName, badgeDescription, badgeImageType, badgeImageLocal, badgeImagesUrl, badge_id]
+      [badgeDisplay, badgeName, badgeDescription, badgeImageType, badgeImageLocal, badgeImagesUrl, badgeId]
     );
     return { success: true, payload: updatedBadge };
   } catch (error) {
     return { success: false, payload: error };
   }
 }
-
 
 module.exports = {
   getAllBadges,
