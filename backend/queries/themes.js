@@ -93,7 +93,7 @@ const updateTheme = async (themeId, themeToUpdate) => {
 
   try {
     const updatedTheme = await db.one(
-      "UPDATE themes SET theme_name=$1, theme_display_size=$2, theme_show_badges=$3, theme_palette=$4, theme_font=$5, theme_text_color=$6, theme_text_size=$7, theme_background=$8, user_id=$9, WHERE theme_id=$10 RETURNING *;",
+      "UPDATE themes SET theme_name=$1, theme_display_size=$2, theme_show_badges=$3, theme_palette=$4, theme_font=$5, theme_text_color=$6, theme_text_size=$7, theme_background=$8, user_id=$9 WHERE theme_id=$10 RETURNING *;",
       [themeName, themeDisplaySize, themeShowBadges, themePalette, themeFont, themeTextColor, themeTextSize, themeBackground, userId, themeId]
     );
     return { success: true, payload: updatedTheme };

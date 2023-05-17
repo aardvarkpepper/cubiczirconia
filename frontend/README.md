@@ -1,3 +1,5 @@
+Notes to self:  Change "image type" to reference separate database.  Toggle between local, url1, url2, etc.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
