@@ -1,4 +1,7 @@
 Notes to self:  Change "image type" to reference separate database.  Toggle between local, url1, url2, etc.
+For badges and users.  Disassociate entirely, and turn them into separate databases, so for example
+query image database, for user with id 1, sort by image id number ascending.  Returns array to populate element.
+jas = junction associative (junction and association interchangable?)
 
 # Getting Started with Create React App
 

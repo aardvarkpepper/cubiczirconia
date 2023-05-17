@@ -1,7 +1,7 @@
 const db = require('../db/dbConfig.js');
 
-//index query
-const getAllThemes = async () => {
+//themes index query, sort by theme id
+const getAllThemesSortThemeId = async () => {
   try {
     const allThemes = await db.any("SELECT * FROM themes ORDER BY theme_id ASC");
     return { success: true, payload: allThemes };
@@ -10,15 +10,14 @@ const getAllThemes = async () => {
   }
 }
 
-//index query by user
-
-const getAllThemesForUser = async (userId) => {
-    try {
-        const allThemesForUser = await db.any("SELECT * FROM themes WHERE user_id = $1 ORDER BY theme_id ASC", userId);
-        return { success: true, payload: allThemesForUser };
-    } catch (error) {
-        return { success: false, payload: error };
-    }
+//themes index query by user, order by theme id
+const getAllThemesByUserSortThemeId = async (userId) => {
+  try {
+    const allThemesForUser = await db.any("SELECT * FROM themes WHERE user_id = $1 ORDER BY theme_id ASC", userId);
+    return { success: true, payload: allThemesForUser };
+  } catch (error) {
+    return { success: false, payload: error };
+  }
 }
 
 //show query
@@ -33,16 +32,16 @@ const getOneTheme = async (themeId) => {
 
 //create query.  Field specific.
 const createTheme = async (themeToAdd) => {
-  const { 
-    theme_name,
-    theme_display_size,
-    theme_show_badges,
-    theme_palette,
-    theme_font,
-    theme_text_color,
-    theme_text_size,
-    theme_background,
-    user_id
+  const {
+    themeName,
+    themeDisplaySize,
+    themeShowBadges,
+    themePalette,
+    themeFont,
+    themeTextColor,
+    themeTextSize,
+    themeBackground,
+    userId
   } = themeToAdd;
 
   /*
@@ -73,16 +72,16 @@ const deleteTheme = async (themeId) => {
 
 //update query.  Field specific.
 const updateTheme = async (themeId, themeToUpdate) => {
-  const { 
-    theme_name,
-    theme_display_size,
-    theme_show_badges,
-    theme_palette,
-    theme_font,
-    theme_text_color,
-    theme_text_size,
-    theme_background,
-    user_id
+  const {
+    themeName,
+    themeDisplaySize,
+    themeShowBadges,
+    themePalette,
+    themeFont,
+    themeTextColor,
+    themeTextSize,
+    themeBackground,
+    userId
   } = themeToUpdate;
 
   /*
@@ -103,8 +102,8 @@ const updateTheme = async (themeId, themeToUpdate) => {
 }
 
 module.exports = {
-  getAllThemes,
-  getAllThemesForUser,
+  getAllThemesSortThemeId,
+  getAllThemesByUserSortThemeId,
   getOneTheme,
   createTheme,
   deleteTheme,
