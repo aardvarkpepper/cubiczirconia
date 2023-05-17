@@ -3,10 +3,10 @@
 -- IF already exists, drop it.
 DROP DATABASE IF EXISTS cubic_zirconia_database;
 
--- Create our database
+-- Create database
 CREATE DATABASE cubic_zirconia_database;
 
--- Connect to the db
+-- Connect to database
 \c cubic_zirconia_database;
 
 CREATE TABLE users (
@@ -46,7 +46,7 @@ CREATE TABLE badges {
     badge_description VARCHAR(80) NOT NULL,
     badge_image_type VARCHAR(10) NOT NULL,
     badge_image_local VARCHAR(80) NOT NULL,
-    badge_images_url VARCHAR(200) NOT NULL
+    badge_image_url VARCHAR(200) NOT NULL
 };
 
 CREATE TABLE users_badges {

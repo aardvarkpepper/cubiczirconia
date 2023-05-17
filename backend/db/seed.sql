@@ -1,3 +1,5 @@
+-- psql -U postgres -f db/seed.sql
+
 INSERT INTO users (user_login_name, user_login_password, user_failed_logins, user_last_login, user_date_of_birth, user_account_create_date, user_username, user_picture_url, user_subscription_type, user_access_level, user_email, user_quote, user_notepad)
 VALUES
 ('bruce_wayne', 'batman123', 0, '2023-05-01', '1970-07-15', '2023-01-01', 'Bruce Wayne (Batman)', 'https://example.com/bruce_wayne.jpg', 'Premium', 1, 'bruce@wayneindustries.com', 'I don''t believe in luck. I believe in preparation.', 'Gotham?  Got cheese?  Well then you got yourself a sandwich.'),
@@ -15,7 +17,7 @@ VALUES
 ('Winter Theme', 'Large', false, 'Blue', 'Verdana', 'White', 'Large', 'White'),
 ('Spring Theme', 'Small', true, 'Green', 'Tahoma', 'Black', 'Small', 'Light Green');
 
-INSERT INTO badges (badge_display, badge_name, badge_description, badge_image_type, badge_image_local, badge_images_url)
+INSERT INTO badges (badge_display, badge_name, badge_description, badge_image_type, badge_image_local, badge_image_url)
 VALUES
 (true, 'Courage Badge', 'Courage!', 'PNG', 'courage_badge.png', 'https://example.com/courage_badge.png'),
 (true, 'Sonic Badge', 'Gotta go fast!', 'JPEG', 'sonic_badge.jpg', 'https://example.com/sonic_badge.jpg'),
