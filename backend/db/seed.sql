@@ -5,6 +5,7 @@
 INSERT INTO users 
 (user_login_name, user_login_password, user_failed_logins, user_last_login, user_date_of_birth, user_account_create_date, user_username, user_image_type, user_image_local, user_image_url, user_subscription_type, user_access_level, user_email, user_quote, user_notepad)
 VALUES
+('guest_user', 'password', 0, '2023-01-01', '2023-01-01', '2023-01-01', 'Guest', 'local', '/images/guest.jpg', 'https://example.com/guest.jpg', 'Free', 1, 'noemail@notanemail.com', 'Logged in as guest.', 'Guest account settings may not be modified.  Have a nice day.'),
 ('bruce_wayne', 'batman123', 0, '2023-05-01', '1970-07-15', '2023-01-01', 'Bruce Wayne (Batman)', 'local', '/images/batman.jpg', 'https://example.com/bruce_wayne.jpg', 'Premium', 1, 'bruce@wayneindustries.com', 'I don''t believe in luck. I believe in preparation.', 'Gotham?  Got cheese?  Well then you got yourself a sandwich.'),
 ('han_solo', 'falcon456', 0, '2023-05-02', '1977-05-25', '2023-01-02', 'Han Solo (Star Wars)', 'local', '/images/hansolo.jpg', 'https://example.com/han_solo.jpg', 'Free', 2, 'han@moseisley.com', 'Never tell me the odds.', 'May the Force be with you!'),
 ('dirty_harry', 'make_my_day789', 0, '2023-05-03', '1971-12-23', '2023-01-03', 'Dirty Harry', 'local', '/images/dirtyharry.jpg', 'https://example.com/dirty_harry.jpg', 'Premium', 1, 'harry@precinct1.com', 'You''ve got to ask yourself one question: Do I feel lucky? Well, do ya, punk?', 'Go ahead, make my day.'),
