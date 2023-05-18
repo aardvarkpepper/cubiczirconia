@@ -3,18 +3,18 @@ const db = require('../db/dbConfig.js');
 //JAS (Users Badges) index query, sort by date
 const getAllJASUsersBadgesSortByDate = async () => {
     try {
-        const allJASUsersBadges = await db.any("SELECT * FROM jas_user_badges ORDER BY jas_user_badge_date ASC");
-        return { success: true, payload: allJASUsersBadges };
+        const allJASUsersBadgesSortByDate = await db.any("SELECT * FROM jas_user_badges ORDER BY jas_user_badge_date ASC");
+        return { success: true, payload: allJASUsersBadgesSortByDate };
     } catch (error) {
         return { success: false, payload: error };
     }
 }
 
 //index query, get badges by user, sort by date
-const getAllJASUsersBadgesByUserSortbyDate = async (userId) => {
+const getAllJASUsersBadgesByUserSortByDate = async (userId) => {
     try {
-        const allJASUsersBadgesByUser = await db.any("SELECT * FROM jas_user_badges WHERE user_id=$1 ORDER BY jas_user_badge_date ASC", userId);
-        return { success: true, payload: allJASUsersBadgesByUser };
+        const allJASUsersBadgesByUserSortByDate = await db.any("SELECT * FROM jas_user_badges WHERE user_id=$1 ORDER BY jas_user_badge_date ASC", userId);
+        return { success: true, payload: allJASUsersBadgesByUserSortByDate };
     } catch (error) {
         return { success: false, payload: error };
     }
@@ -23,8 +23,8 @@ const getAllJASUsersBadgesByUserSortbyDate = async (userId) => {
 //index query, get users by badge, sort by date
 const getAllJASUsersBadgesByBadgeSortByDate = async (badgeId) => {
     try {
-        const allJASUsersBadgesByBadge = await db.any("SELECT * FROM jas_user_badges WHERE badge_id=$1 ORDER BY jas_user_badge_date ASC", badgeId);
-        return { success: true, payload: allJASUsersBadgesByBadge };
+        const allJASUsersBadgesByBadgeSortByDate = await db.any("SELECT * FROM jas_user_badges WHERE badge_id=$1 ORDER BY jas_user_badge_date ASC", badgeId);
+        return { success: true, payload: allJASUsersBadgesByBadgeSortByDate };
     } catch (error) {
         return { success: false, payload: error };
     }
@@ -109,7 +109,7 @@ const updateJASUserBadge = async (JASUserBadgeId, JASUserBadgeToUpdate) => {
 
 module.exports = {
     getAllJASUsersBadgesSortByDate,
-    getAllJASUsersBadgesByUserSortbyDate,
+    getAllJASUsersBadgesByUserSortByDate,
     getAllJASUsersBadgesByBadgeSortByDate,
     getOneJASUserBadge,
     createJASUserBadge,

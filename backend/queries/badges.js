@@ -1,10 +1,10 @@
 const db = require('../db/dbConfig.js');
 
 //badges index query, sort by badge id
-const getAllBadgesSortBadgeId = async () => {
+const getAllBadgesSortByBadgeId = async () => {
   try {
-    const allBadges = await db.any("SELECT * FROM badges ORDER BY badge_id ASC");
-    return { success: true, payload: allBadges };
+    const allBadgesSortByBadgeId = await db.any("SELECT * FROM badges ORDER BY badge_id ASC");
+    return { success: true, payload: allBadgesSortByBridgeId };
   } catch (error) {
     return { success: false, payload: error };
   }
@@ -80,7 +80,7 @@ const updateBadge = async (badgeId, badgeToUpdate) => {
 }
 
 module.exports = {
-  getAllBadgesSortBadgeId,
+  getAllBadgesSortByBadgeId,
   getOneBadge,
   createBadge,
   deleteBadge,

@@ -2,7 +2,7 @@ const express = require('express');
 const badges = express.Router();
 
 const {
-    getAllBadgesSortBadgeId,
+    getAllBadgesSortByBadgeId,
     getOneBadge,
     createBadge,
     deleteBadge,
@@ -11,12 +11,12 @@ const {
 
 //index route
 badges.get('/', async (req, res) => {
-    const allBadges = await getAllBadges();
+    const allBadgesSortByBadgeId = await getAllBadgesSortByBadgeId();
 
-    if (allBadges.success) {
-        res.status(200).json(allBadges.payload);
+    if (allBadgesSortByBadgeId.success) {
+        res.status(200).json(allBadgesSortByBadgeId.payload);
     } else {
-        res.status(400).json({ error: `Error: ${allBadges.payload}` });
+        res.status(400).json({ error: `Error: ${allBadgesSortByBadgeId.payload}` });
     }
 })
 
