@@ -1,5 +1,5 @@
 const express = require('express');
-const badges = express.Router();
+const badges = express.Router({mergeParams: true});
 
 const {
     getAllBadgesSortByBadgeId,
@@ -34,8 +34,7 @@ badges.get('/:id', async (req, res) => {
 
 //create route
 badges.post('/', async (req, res) => {
-    const newBadge = req.body;
-    const createdBadge = await createBadge(newBadge);
+    const createdBadge = await createBadge(req.body);
 
     if (createdBadge.success) {
         res.status(200).json(createdBadge.payload);
@@ -59,8 +58,7 @@ badges.delete('/:id', async (req, res) => {
 //update route
 badges.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const editBadge = req.body;
-    const updatedBadge = await updateBadge(id, editBadge);
+    const updatedBadge = await updateBadge(id, req.body);
 
     if (updatedBadge.success) {
         res.status(200).json(updatedBadge.payload);

@@ -33,15 +33,15 @@ const getOneTheme = async (themeId) => {
 //create query.  Field specific.
 const createTheme = async (themeToAdd) => {
   const {
-    themeName,
-    themeDisplaySize,
-    themeShowBadges,
-    themePalette,
-    themeFont,
-    themeTextColor,
-    themeTextSize,
-    themeBackground,
-    userId
+    theme_name, 
+    theme_display_size, 
+    theme_show_badges, 
+    theme_palette, 
+    theme_font, 
+    theme_text_color, 
+    theme_text_size, 
+    theme_background, 
+    user_id
   } = themeToAdd;
 
   /*
@@ -52,7 +52,7 @@ const createTheme = async (themeToAdd) => {
   try {
     const newTheme = await db.one(
       "INSERT INTO themes (theme_name, theme_display_size, theme_show_badges, theme_palette, theme_font, theme_text_color, theme_text_size, theme_background, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;",
-      [themeName, themeDisplaySize, themeShowBadges, themePalette, themeFont, themeTextColor, themeTextSize, themeBackground, userId]
+      [theme_name, theme_display_size, theme_show_badges, theme_palette, theme_font, theme_text_color, theme_text_size, theme_background, user_id]
     );
     return { success: true, payload: newTheme };
   } catch (error) {
@@ -73,15 +73,15 @@ const deleteTheme = async (themeId) => {
 //update query.  Field specific.
 const updateTheme = async (themeId, themeToUpdate) => {
   const {
-    themeName,
-    themeDisplaySize,
-    themeShowBadges,
-    themePalette,
-    themeFont,
-    themeTextColor,
-    themeTextSize,
-    themeBackground,
-    userId
+    theme_name, 
+    theme_display_size, 
+    theme_show_badges, 
+    theme_palette, 
+    theme_font, 
+    theme_text_color, 
+    theme_text_size, 
+    theme_background, 
+    user_id
   } = themeToUpdate;
 
   /*
@@ -93,7 +93,7 @@ const updateTheme = async (themeId, themeToUpdate) => {
   try {
     const updatedTheme = await db.one(
       "UPDATE themes SET theme_name=$1, theme_display_size=$2, theme_show_badges=$3, theme_palette=$4, theme_font=$5, theme_text_color=$6, theme_text_size=$7, theme_background=$8, user_id=$9 WHERE theme_id=$10 RETURNING *;",
-      [themeName, themeDisplaySize, themeShowBadges, themePalette, themeFont, themeTextColor, themeTextSize, themeBackground, userId, themeId]
+      [theme_name, theme_display_size, theme_show_badges, theme_palette, theme_font, theme_text_color, theme_text_size, theme_background, user_id, themeId]
     );
     return { success: true, payload: updatedTheme };
   } catch (error) {

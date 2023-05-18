@@ -3,7 +3,7 @@ const db = require('../db/dbConfig.js');
 //users index query, sort by user id
 const getAllUsersSortByUserId = async () => {
   try {
-    const allUsersSortyByUserId = await db.any("SELECT * FROM users ORDER BY user_id ASC");
+    const allUsersSortByUserId = await db.any("SELECT * FROM users ORDER BY user_id ASC");
     return { success: true, payload: allUsersSortByUserId };
   } catch (error) {
     return { success: false, payload: error };
@@ -23,21 +23,21 @@ const getOneUser = async (userId) => {
 //create query.  Field specific.
 const createUser = async (userToAdd) => {
   const {
-    userLoginName, 
-    userLoginPassword, 
-    userFailedLogins, 
-    userLastLogin, 
-    userDateOfBirth, 
-    userAccountCreateDate, 
-    userUsername, 
-    userImageType, 
-    userImageLocal, 
-    userImageUrl, 
-    userSubscriptionType, 
-    userAccessLevel, 
-    userEmail, 
-    userQuote, 
-    userNotepad
+    user_login_name, 
+    user_login_password, 
+    user_failed_logins, 
+    user_last_login, 
+    user_date_of_birth, 
+    user_account_create_date, 
+    user_username, 
+    user_image_type, 
+    user_image_local, 
+    user_image_url, 
+    user_subscription_type, 
+    user_access_level, 
+    user_email, 
+    user_quote, 
+    user_notepad
   } = userToAdd;
 
   /*
@@ -48,7 +48,7 @@ const createUser = async (userToAdd) => {
   try {
     const newUser = await db.one(
       "INSERT INTO users (user_login_name, user_login_password, user_failed_logins, user_last_login, user_date_of_birth, user_account_create_date, user_username, user_image_type, user_image_local, user_image_url, user_subscription_type, user_access_level, user_email, user_quote, user_notepad) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING *;",
-      [userLoginName, userLoginPassword, userFailedLogins, userLastLogin, userDateOfBirth, userAccountCreateDate, userUsername, userImageType, userImageLocal, userImageUrl, userSubscriptionType, userAccessLevel, userEmail, userQuote, userNotepad]
+      [user_login_name, user_login_password, user_failed_logins, user_last_login, user_date_of_birth, user_account_create_date, user_username, user_image_type, user_image_local, user_image_url, user_subscription_type, user_access_level, user_email, user_quote, user_notepad]
     );
     return { success: true, payload: newUser };
   } catch (error) {
@@ -69,21 +69,21 @@ const deleteUser = async (userId) => {
 //update query.  Field specific.
 const updateUser = async (userId, userToUpdate) => {
   const {
-    userLoginName, 
-    userLoginPassword, 
-    userFailedLogins, 
-    userLastLogin, 
-    userDateOfBirth, 
-    userAccountCreateDate, 
-    userUsername, 
-    userImageType, 
-    userImageLocal, 
-    userImageUrl, 
-    userSubscriptionType, 
-    userAccessLevel, 
-    userEmail, 
-    userQuote, 
-    userNotepad
+    user_login_name,
+    user_login_password,
+    user_failed_logins,
+    user_last_login,
+    user_date_of_birth,
+    user_account_create_date,
+    user_username,
+    user_image_type,
+    user_image_local,
+    user_image_url,
+    user_subscription_type,
+    user_access_level,
+    user_email,
+    user_quote,
+    user_notepad
   } = userToUpdate;
 
   /*
@@ -94,8 +94,8 @@ const updateUser = async (userId, userToUpdate) => {
 
   try {
     const updatedUser = await db.one(
-      "UPDATE users SET user_login_name=$1, user_login_password=$2, user_failed_logins=$3, user_last_login=$4, user_date_of_birth=$5, user_account_create_date=$6, user_username=$7, user_image_type=$8, user_image_local=$9, user_image_url=$10, user_subscription_type=$11, user_access_level=$12, user_email=$13, user_quote=$14, user_notepad=$15 WHERE user_id=$6 RETURNING *;",
-      [userLoginName, userLoginPassword, userFailedLogins, userLastLogin, userDateOfBirth, userAccountCreateDate, userUsername, userImageType, userImageLocal, userImageUrl, userSubscriptionType, userAccessLevel, userEmail, userQuote, userNotepad, userId]
+      "UPDATE users SET user_login_name=$1, user_login_password=$2, user_failed_logins=$3, user_last_login=$4, user_date_of_birth=$5, user_account_create_date=$6, user_username=$7, user_image_type=$8, user_image_local=$9, user_image_url=$10, user_subscription_type=$11, user_access_level=$12, user_email=$13, user_quote=$14, user_notepad=$15 WHERE user_id=$16 RETURNING *;",
+      [user_login_name, user_login_password, user_failed_logins, user_last_login, user_date_of_birth, user_account_create_date, user_username, user_image_type, user_image_local, user_image_url, user_subscription_type, user_access_level, user_email, user_quote, user_notepad, userId]
     );
     return { success: true, payload: updatedUser };
   } catch (error) {

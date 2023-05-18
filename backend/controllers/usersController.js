@@ -1,5 +1,5 @@
 const express = require('express');
-const users = express.Router();
+const users = express.Router({mergeParams: true});
 
 const {
     getAllUsersSortByUserId,

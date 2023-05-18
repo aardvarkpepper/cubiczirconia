@@ -1,5 +1,5 @@
 const express = require('express');
-const themes = express.Router();
+const themes = express.Router({mergeParams: true});
 
 const {
     getAllThemesSortByThemeId,

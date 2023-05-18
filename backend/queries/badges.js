@@ -1,16 +1,16 @@
 const db = require('../db/dbConfig.js');
 
-//badges index query, sort by badge id
+//badges index query, sort by badge id;
 const getAllBadgesSortByBadgeId = async () => {
   try {
     const allBadgesSortByBadgeId = await db.any("SELECT * FROM badges ORDER BY badge_id ASC");
-    return { success: true, payload: allBadgesSortByBridgeId };
+    return { success: true, payload: allBadgesSortByBadgeId };
   } catch (error) {
     return { success: false, payload: error };
   }
 }
 
-//show query
+//show query;
 const getOneBadge = async (badgeId) => {
   try {
     const oneBadge = await db.one("SELECT * FROM badges WHERE badge_id=$1;", badgeId);
@@ -22,10 +22,11 @@ const getOneBadge = async (badgeId) => {
 
 //create query.  Field specific.
 const createBadge = async (badgeToAdd) => {
+  console.log(badgeToAdd);
   const {
-    badgeName,
-    badgeDescription,
-    badgeImageLocal,
+    badge_name,
+    badge_description,
+    badge_image_local,
   } = badgeToAdd;
 
   /*
@@ -36,7 +37,7 @@ const createBadge = async (badgeToAdd) => {
   try {
     const newBadge = await db.one(
       "INSERT INTO badges (badge_name, badge_description, badge_image_local) VALUES ($1, $2, $3) RETURNING *;",
-      [badgeName, badgeDescription, badgeImageLocal]
+      [badge_name, badge_description, badge_image_local]
     );
     return { success: true, payload: newBadge };
   } catch (error) {
@@ -57,9 +58,9 @@ const deleteBadge = async (badgeId) => {
 //update query.  Field specific.
 const updateBadge = async (badgeId, badgeToUpdate) => {
   const {
-    badgeName,
-    badgeDescription,
-    badgeImageLocal,
+    badge_name,
+    badge_description,
+    badge_image_local,
   } = badgeToUpdate;
 
   /*
@@ -70,8 +71,8 @@ const updateBadge = async (badgeId, badgeToUpdate) => {
 
   try {
     const updatedBadge = await db.one(
-      "UPDATE badges SET badge_name=$1, badge_description=$2, badge_image_local=$3, WHERE badge_id=$4 RETURNING *;",
-      [badgeName, badgeDescription, badgeImageLocal, badgeId]
+      "UPDATE badges SET badge_name=$1, badge_description=$2, badge_image_local=$3 WHERE badge_id=$4 RETURNING *;",
+      [badge_name, badge_description, badge_image_local, badgeId]
     );
     return { success: true, payload: updatedBadge };
   } catch (error) {
