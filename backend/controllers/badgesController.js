@@ -9,7 +9,7 @@ const {
     updateBadge
 } = require('../queries/badges.js');
 
-//index route
+//index route badges, sort by badge id
 badges.get('/', async (req, res) => {
     const allBadgesSortByBadgeId = await getAllBadgesSortByBadgeId();
 

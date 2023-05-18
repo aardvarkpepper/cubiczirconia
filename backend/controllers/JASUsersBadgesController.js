@@ -11,8 +11,7 @@ const {
     updateJASUserBadge
 } = require('../queries/JASUsersBadges.js');
 
-
-//index route
+//index route, JASUserBadges, sort by date.
 JASUsersBadges.get('/', async (req, res) => {
     const allJASUsersBadgesSortByDate = await getAllJASUsersBadgesSortByDate();
 
@@ -20,6 +19,30 @@ JASUsersBadges.get('/', async (req, res) => {
         res.status(200).json(allJASUsersBadgesSortByDate.payload);
     } else {
         res.status(400).json({ error: `Error: ${allJASUsersBadgesSortByDate.payload}` });
+    }
+})
+
+//index route, JASUserBadges by badge, sort by date.  Entered before "/:id" route to prevent bad routing.
+JASUsersBadges.get('/badge/:badgeId', async (req, res) => {
+    const { badgeId } = req.params;
+    const allJASUsersBadgesByBadgeSortByDate = await getAllJASUsersBadgesByBadgeSortByDate(badgeId);
+
+    if (allJASUsersBadgesByBadgeSortByDate.success) {
+        res.status(200).json(allJASUsersBadgesByBadgeSortByDate.payload);
+    } else {
+        res.status(400).json({ error: `Error: ${allJASUsersBadgesByBadgeSortByDate.payload}` });
+    }
+})
+
+//index route, JASUserBadges by user, sort by date.  Entered before "/:id" route to prevent bad routing.
+JASUsersBadges.get('/user/:userId', async (req, res) => {
+    const { userId } = req.params;
+    const allJASUsersBadgesByUserSortByDate = await getAllJASUsersBadgesByUserSortByDate(userId);
+
+    if (allJASUsersBadgesByUserSortByDate.success) {
+        res.status(200).json(allJASUsersBadgesByUserSortByDate.payload);
+    } else {
+        res.status(400).json({ error: `Error: ${allJASUsersBadgesByUserSortByDate.payload}` });
     }
 })
 
@@ -32,30 +55,6 @@ JASUsersBadges.get('/:id', async (req, res) => {
         res.status(200).json(oneJASUserBadge.payload);
     } else {
         res.status(400).json({ error: `Error: ${oneJASUserBadge.payload}` });
-    }
-})
-
-//index route
-JASUsersBadges.get('/user/:id', async (req, res) => {
-    const { userId } = req.params;
-    const allJASUsersBadgesByUserSortByDate = await getAllJASUsersBadgesByUserSortByDate(userId);
-
-    if (allJASUsersBadgesByUserSortByDate.success) {
-        res.status(200).json(allJASUsersBadgesByUserSortByDate.payload);
-    } else {
-        res.status(400).json({ error: `Error: ${allJASUsersBadgesByUserSortByDate.payload}` });
-    }
-})
-
-//index route
-JASUsersBadges.get('/badge/:id', async (req, res) => {
-    const { badgeId } = req.params;
-    const allJASUsersBadgesByBadgeSortByDate = await getAllJASUsersBadgesByBadgeSortByDate(badgeId);
-
-    if (allJASUsersBadgesByBadgeSortByDate.success) {
-        res.status(200).json(allJASUsersBadgesByBadgeSortByDate.payload);
-    } else {
-        res.status(400).json({ error: `Error: ${allJASUsersBadgesByBadgeSortByDate.payload}` });
     }
 })
 
@@ -95,6 +94,5 @@ JASUsersBadges.put('/:id', async (req, res) => {
         res.status(400).json({ error: `Error: ${updatedJASUserBadge.payload}` });
     }
 })
-
 
 module.exports = JASUsersBadges;

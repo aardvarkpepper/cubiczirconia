@@ -1,20 +1,20 @@
 const db = require('../db/dbConfig.js');
 
 //themes index query, sort by theme id
-const getAllThemesSortThemeId = async () => {
+const getAllThemesSortByThemeId = async () => {
   try {
-    const allThemes = await db.any("SELECT * FROM themes ORDER BY theme_id ASC");
-    return { success: true, payload: allThemes };
+    const allThemesSortByThemeId  = await db.any("SELECT * FROM themes ORDER BY theme_id ASC");
+    return { success: true, payload: allThemesSortByThemeId };
   } catch (error) {
     return { success: false, payload: error };
   }
 }
 
 //themes index query by user, order by theme id
-const getAllThemesByUserSortThemeId = async (userId) => {
+const getAllThemesByUserSortByThemeId = async (userId) => {
   try {
-    const allThemesForUser = await db.any("SELECT * FROM themes WHERE user_id = $1 ORDER BY theme_id ASC", userId);
-    return { success: true, payload: allThemesForUser };
+    const allThemesByUserSortByThemeId = await db.any("SELECT * FROM themes WHERE user_id = $1 ORDER BY theme_id ASC", userId);
+    return { success: true, payload: allThemesByUserSortByThemeId };
   } catch (error) {
     return { success: false, payload: error };
   }
@@ -102,8 +102,8 @@ const updateTheme = async (themeId, themeToUpdate) => {
 }
 
 module.exports = {
-  getAllThemesSortThemeId,
-  getAllThemesByUserSortThemeId,
+  getAllThemesSortByThemeId,
+  getAllThemesByUserSortByThemeId,
   getOneTheme,
   createTheme,
   deleteTheme,
