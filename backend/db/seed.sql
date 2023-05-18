@@ -1,5 +1,7 @@
 -- psql -U postgres -f db/seed.sql
 
+\c cubic_zirconia_database;
+
 INSERT INTO users (user_login_name, user_login_password, user_failed_logins, user_last_login, user_date_of_birth, user_account_create_date, user_username, user_image_type, user_image_local, user_image_url, user_subscription_type, user_access_level, user_email, user_quote, user_notepad)
 VALUES
 ('bruce_wayne', 'batman123', 0, '2023-05-01', '1970-07-15', '2023-01-01', 'Bruce Wayne (Batman)', 'local', '/images/batman.jpg', 'https://example.com/bruce_wayne.jpg', 'Premium', 1, 'bruce@wayneindustries.com', 'I don''t believe in luck. I believe in preparation.', 'Gotham?  Got cheese?  Well then you got yourself a sandwich.'),
@@ -19,10 +21,10 @@ VALUES
 
 INSERT INTO badges (badge_name, badge_description, badge_image_local)
 VALUES
-(true, 'Courage Badge', 'Courage!', '/images/courage_badge.png', 'https://example.com/courage_badge.png'),
-(true, 'Sonic Badge', 'Gotta go fast!', '/images/sonic_badge.jpg', 'https://example.com/sonic_badge.jpg'),
-(true, 'Wile E. Coyote Badge', 'I am a genius by trade.', '/images/coyote_badge.png', 'https://example.com/coyote_badge.png'),
-(true, 'Luffy Badge', 'Aren''t we friends?', '/images/luffy_badge.jpg', 'https://example.com/luffy_badge.jpg');
+('Courage Badge', 'Courage!', '/images/courage_badge.png'),
+('Sonic Badge', 'Gotta go fast!', '/images/sonic_badge.jpg'),
+('Wile E. Coyote Badge', 'I am a genius by trade.', '/images/coyote_badge.png'),
+('Luffy Badge', 'Aren''t we friends?', '/images/luffy_badge.jpg');
 
 INSERT INTO jas_users_badges (user_id, badge_id, jas_user_badge_display, jas_user_badge_image_type, jas_user_badge_image_url, jas_user_badge_for, jas_user_badge_date)
 VALUES

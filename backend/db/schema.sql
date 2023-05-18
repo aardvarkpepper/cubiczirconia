@@ -13,7 +13,7 @@ CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     user_login_name VARCHAR(40) NOT NULL,
     user_login_password VARCHAR(40) NOT NULL,
-    user_failed_logins SMALLINT NOT NULL CHECK (failed_logins >=0),
+    user_failed_logins SMALLINT NOT NULL CHECK (user_failed_logins >=0),
     user_last_login DATE NOT NULL,
     user_date_of_birth DATE NOT NULL,
     user_account_create_date DATE NOT NULL,
@@ -39,17 +39,17 @@ CREATE TABLE themes (
     theme_text_size VARCHAR(20) NOT NULL,
     theme_background VARCHAR(20) NOT NULL,
     user_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE badges {
+CREATE TABLE badges (
     badge_id SERIAL PRIMARY KEY,
     badge_name VARCHAR(40) NOT NULL,
     badge_description VARCHAR(80) NOT NULL,
-    badge_image_local VARCHAR(80) NOT NULL,
-};
+    badge_image_local VARCHAR(80) NOT NULL
+);
 
-CREATE TABLE jas_users_badges {
+CREATE TABLE jas_users_badges (
     jas_user_badge_id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
     badge_id INT NOT NULL,
@@ -59,5 +59,5 @@ CREATE TABLE jas_users_badges {
     jas_user_badge_for VARCHAR(120) NOT NULL,
     jas_user_badge_date DATE NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (badge_id) REFERENCES badges(badge_id) ON UPDATE CASCADE ON DELETE CASCADE,
-};
+    FOREIGN KEY (badge_id) REFERENCES badges(badge_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
