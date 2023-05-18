@@ -1,10 +1,10 @@
 const db = require('../db/dbConfig.js');
 
 //users index query, sort by user id
-const getAllUsersSortUserId = async () => {
+const getAllUsersSortByUserId = async () => {
   try {
-    const allUsers = await db.any("SELECT * FROM users ORDER BY user_id ASC");
-    return { success: true, payload: allUsers };
+    const allUsersSortyByUserId = await db.any("SELECT * FROM users ORDER BY user_id ASC");
+    return { success: true, payload: allUsersSortByUserId };
   } catch (error) {
     return { success: false, payload: error };
   }
@@ -104,7 +104,7 @@ const updateUser = async (userId, userToUpdate) => {
 }
 
 module.exports = {
-  getAllUsersSortUserId,
+  getAllUsersSortByUserId,
   getOneUser,
   createUser,
   deleteUser,
