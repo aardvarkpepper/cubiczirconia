@@ -1,7 +1,29 @@
+
+using port 3333
+
 Notes to self:  Change "image type" to reference separate database.  Toggle between local, url1, url2, etc.
 For badges and users.  Disassociate entirely, and turn them into separate databases, so for example
 query image database, for user with id 1, sort by image id number ascending.  Returns array to populate element.
 jas = junction associative (junction and association interchangable?)
+
+too big - minify
+doesn't have cart - will be added
+
+useContext - not taught in pursuit.  styling, application, global level data.  authentication or user session
+multiple componet
+
+state for local stuff mostly
+
+redux?  usecontext?  other tech sql
+bootstrap limts
+
+scss - structured css
+
+getAllThemesForUserSortThemeId should likewise disassociate; instead of sorting by theme id, user specified sort.
+
+Change theme default from populating separately for each user?
+See how other programs implemnet default themes, what is standard
+practice if any?
 
 # Getting Started with Create React App
 

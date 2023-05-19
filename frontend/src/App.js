@@ -3,6 +3,9 @@ import './App.css';
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+//CONTEXTS
+import { ThemeProvider, UserProvider } from "./contexts/UserContext";
+
 //COMPONENTS
 import Navbar from "./components/Navbar.jsx";
 
@@ -74,56 +77,45 @@ updateTheme, /themes/:id/edit (as before, form template)
 */
 
 export default function App() {
-  const [loggedInAs, setLoggedInAs] = useState({
-    userId: 1,
-    userLoginName: "guest_user",
-    userLoginPassword: "password",
-    userFailedLogins: 0,
-    userLastLogin: "2023-01-01",
-    userDateOfBirth: "2023-01-01",
-    userAccountCreateDate: "2023-01-01",
-    userUsername: "Guest",
-    userImageType: "local",
-    userImageLocal: "/images/guest.jpg",
-    userImageUrl: "https://example.com/guest.jpg",
-    userSubscriptionType: "Free",
-    userAccessLevel: 1,
-    userEmail: "noemail@notanemail.com",
-    userQuote: "Logged in as guest.",
-    userNotepad: "Guest accounts may not be modified.  Have a nice day.",
-  });
+
 
   return (
     <Router>
-      <header>
-        <Navbar loggedInAs={loggedInAs} />
-      </header>
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
+      <UserProvider>
+        <ThemeProvider>
 
-          <Route path="/users" element={<UsersIndex />} />
-          <Route path="/users/new" element={<UserCreate />} />
-          <Route exact path="/users/:id" element={<UserDetails />} />
-          <Route path="/users/:id/edit" element={<UserEdit />} />
-          <Route path="/users/:id/badges" element={<UserBadges />} />
-          <Route path="/users/:id/themes" element={<UserThemes />} />
+          <header>
+            <Navbar loggedInAs={loggedInAs} />
+          </header>
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
 
-          <Route path="/badges" element={<BadgesIndex />} />
-          <Route path="/badges/new" element={<BadgeCreate />} />
-          <Route path="/badges/users" element={<BadgesUsers />} />
-          <Route path="/badges/:id" element={<BadgeDetails />} />
-          <Route path="/badges/:id/edit" element={<BadgeEdit />} />
-          <Route path="/badges/:id/users" element={<BadgeUsers />} />
+              <Route path="/users" element={<UsersIndex />} />
+              <Route path="/users/new" element={<UserCreate />} />
+              <Route exact path="/users/:id" element={<UserDetails />} />
+              <Route path="/users/:id/edit" element={<UserEdit />} />
+              <Route path="/users/:id/badges" element={<UserBadges />} />
+              <Route path="/users/:id/themes" element={<UserThemes />} />
 
-          <Route path="/themes" element={<ThemesIndex />} />
-          <Route path="/themes/new" element={<ThemeCreate />} />
-          <Route exact path="/themes/:id" element={<ThemeDetails />} />
-          <Route path="/themes/:id/edit" element={<ThemeEdit />} />
+              <Route path="/badges" element={<BadgesIndex />} />
+              <Route path="/badges/new" element={<BadgeCreate />} />
+              <Route path="/badges/users" element={<BadgesUsers />} />
+              <Route path="/badges/:id" element={<BadgeDetails />} />
+              <Route path="/badges/:id/edit" element={<BadgeEdit />} />
+              <Route path="/badges/:id/users" element={<BadgeUsers />} />
 
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-      </main>
+              <Route path="/themes" element={<ThemesIndex />} />
+              <Route path="/themes/new" element={<ThemeCreate />} />
+              <Route exact path="/themes/:id" element={<ThemeDetails />} />
+              <Route path="/themes/:id/edit" element={<ThemeEdit />} />
+
+              <Route path="*" element={<Error404 />} />
+            </Routes>
+          </main>
+          
+        </ThemeProvider>
+      </UserProvider>
     </Router>
   );
 }
