@@ -13,7 +13,7 @@ CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     user_login_name VARCHAR(40) NOT NULL,
     user_login_password VARCHAR(40) NOT NULL,
-    user_failed_logins SMALLINT NOT NULL CHECK (user_failed_logins <= 0),
+    user_failed_logins SMALLINT NOT NULL CHECK (user_failed_logins >= 0),
     user_last_login DATE NOT NULL,
     user_date_of_birth DATE NOT NULL,
     user_account_create_date DATE NOT NULL,

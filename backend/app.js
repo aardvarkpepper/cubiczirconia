@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 
 // 404 PAGE
 app.get("*", (req, res) => {
-  res.status(404).send("Page not found");
+  res.status(404).send("Back End Page not found");
 });
 // EXPORT
 module.exports = app;

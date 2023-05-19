@@ -1,25 +1,129 @@
-import logo from './logo.svg';
+//DEPENDENCIES
 import './App.css';
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+//COMPONENTS
+import Navbar from "./components/Navbar.jsx";
+
+//PAGES
+import Home from "./pages/Home.jsx";
+import Error404 from "./pages/Error404.jsx";
+
+import BadgeCreate from "./pages/badges/BadgeCreate.jsx";
+import BadgeDetails from "./pages/badges/BadgeDetails.jsx";
+import BadgeEdit from "./pages/badges/BadgeEdit.jsx";
+import BadgesIndex from "./pages/badges/BadgesIndex.jsx";
+import BadgesUsers from "./pages/badges/BadgesUsers.jsx";
+import BadgeUsers from "./pages/badges/BadgeUsers.jsx";
+
+import ThemeCreate from "./pages/themes/ThemeCreate.jsx";
+import ThemeDetails from "./pages/themes/ThemeDetails.jsx";
+import ThemeEdit from "./pages/themes/ThemeEdit.jsx";
+import ThemesIndex from "./pages/themes/ThemesIndex.jsx";
+
+import UserBadges from "./pages/users/UserBadges.jsx";
+import UserCreate from "./pages/users/UserCreate.jsx";
+import UserDetails from "./pages/users/UserDetails.jsx";
+import UserEdit from "./pages/users/UserEdit.jsx";
+import UsersIndex from "./pages/users/UsersIndex.jsx";
+import UserThemes from "./pages/users/UserThemes.jsx";
+
+/*
+Create single component that serves for both edit and new.
+Link calls the component with state.
+Future: Set (data structure to reduce time).
+
+Retrieve data and store in state, to prevent additional axios calls.
+Experiment with className and css.
+Create UserContext and ThemeContext.js.  Within, define UserContext nd UserProvider etc.
+Wrap Routes within UserProvider then ThemeProvider.  Components within wrap may use UserContext etc.
+
+getAllUsersSortByUserId, /users
+getOneUser, /users/:id ==> sub-component renders only if enough access privileges.
+createUser, /users/new  ==> form template
+deleteUser, /users/:id/edit ==> on form below
+updateUser, /users/:id/edit ==> form template
+
+getAllBadgesSortByBadgeId, /badges
+getOneBadge, /badges/:id
+createBadge, /badges/new
+deleteBadge, /badges/:id/edit
+updateBadge, /badges/:id/edit
+
+getAllJASUsersBadgesSortByDate, /badges/users/
+getAllJASUsersBadgesByUserSortByDate, /users/:id/badges (map to sub-component)
+getAllJASUsersBadgesByBadgeSortByDate, /badges/:id/users
+
+==
+Renders as a separate subcomponent wherever individual badges may be accessed?  Regardless,
+doesn't receive its own route.
+
+getOneJASUserBadge, /users/:id (rendered as sub-component from map) (How would be called using user id and badge id instead of userbadge id?  Covered in class.)
+createJASUserBadge, /users/:id (sub-component, form can award to multiple users)
+deleteJASUserBadge, /users/:id (sub-component, specify specific badge.  This is technically awkward for real use cases.)
+updateJASUserBadge, /users/:id (sub-component, specify specific badge.  As above.)
+==
+
+getAllThemesSortByThemeId, /themes
+getAllThemesByUserSortByThemeId, /users/:id/themes
+getOneTheme, /themes/:id
+createTheme, /themes/new (as before, form template)
+deleteTheme, /themes/:id/edit (as before, on form below)
+updateTheme, /themes/:id/edit (as before, form template)
+*/
+
+export default function App() {
+  const [loggedInAs, setLoggedInAs] = useState({
+    userId: 1,
+    userLoginName: "guest_user",
+    userLoginPassword: "password",
+    userFailedLogins: 0,
+    userLastLogin: "2023-01-01",
+    userDateOfBirth: "2023-01-01",
+    userAccountCreateDate: "2023-01-01",
+    userUsername: "Guest",
+    userImageType: "local",
+    userImageLocal: "/images/guest.jpg",
+    userImageUrl: "https://example.com/guest.jpg",
+    userSubscriptionType: "Free",
+    userAccessLevel: 1,
+    userEmail: "noemail@notanemail.com",
+    userQuote: "Logged in as guest.",
+    userNotepad: "Guest accounts may not be modified.  Have a nice day.",
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Router>
+      <header>
+        <Navbar loggedInAs={loggedInAs} />
       </header>
-    </div>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          <Route path="/users" element={<UsersIndex />} />
+          <Route path="/users/new" element={<UserCreate />} />
+          <Route exact path="/users/:id" element={<UserDetails />} />
+          <Route path="/users/:id/edit" element={<UserEdit />} />
+          <Route path="/users/:id/badges" element={<UserBadges />} />
+          <Route path="/users/:id/themes" element={<UserThemes />} />
+
+          <Route path="/badges" element={<BadgesIndex />} />
+          <Route path="/badges/new" element={<BadgeCreate />} />
+          <Route path="/badges/users" element={<BadgesUsers />} />
+          <Route path="/badges/:id" element={<BadgeDetails />} />
+          <Route path="/badges/:id/edit" element={<BadgeEdit />} />
+          <Route path="/badges/:id/users" element={<BadgeUsers />} />
+
+          <Route path="/themes" element={<ThemesIndex />} />
+          <Route path="/themes/new" element={<ThemeCreate />} />
+          <Route exact path="/themes/:id" element={<ThemeDetails />} />
+          <Route path="/themes/:id/edit" element={<ThemeEdit />} />
+
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </main>
+    </Router>
   );
 }
-
-export default App;
