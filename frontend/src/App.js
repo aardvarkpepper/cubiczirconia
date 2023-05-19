@@ -1,10 +1,10 @@
 //DEPENDENCIES
 import './App.css';
-import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //CONTEXTS
-import { ThemeProvider, UserProvider } from "./contexts/UserContext";
+import { UserProvider } from "./contexts/UserContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 //COMPONENTS
 import Navbar from "./components/Navbar.jsx";
@@ -78,17 +78,17 @@ updateTheme, /themes/:id/edit (as before, form template)
 
 export default function App() {
 
-
   return (
     <Router>
       <UserProvider>
         <ThemeProvider>
 
           <header>
-            <Navbar loggedInAs={loggedInAs} />
+            ham
+            <Navbar />
           </header>
           <main>
-            <Routes>
+            {/* <Routes>
               <Route path="/" element={<Home />} />
 
               <Route path="/users" element={<UsersIndex />} />
@@ -111,7 +111,7 @@ export default function App() {
               <Route path="/themes/:id/edit" element={<ThemeEdit />} />
 
               <Route path="*" element={<Error404 />} />
-            </Routes>
+            </Routes> */}
           </main>
           
         </ThemeProvider>
