@@ -25,6 +25,9 @@ Change theme default from populating separately for each user?
 See how other programs implemnet default themes, what is standard
 practice if any?
 
+Redefine default theme to be an array of themes in database.
+This is added to array of user themes.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

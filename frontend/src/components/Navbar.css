@@ -1,4 +1,4 @@
-Navbar {
+/* .Navbar {
     display: inline-flex;
     position: absolute;
     padding: 10px;
@@ -8,4 +8,9 @@ Navbar {
     border-color: gold;
     justify-content: space-between;
     z-index: 1;
+} */
+
+.NavbarLinks {
+    display: flex;
+    justify-content: space-between;
 }

@@ -76,7 +76,7 @@ deleteTheme, /themes/:id/edit (as before, on form below)
 updateTheme, /themes/:id/edit (as before, form template)
 */
 
-export default function App() {
+const App = () => {
 
   return (
     <Router>
@@ -88,7 +88,7 @@ export default function App() {
             <Navbar />
           </header>
           <main>
-            {/* <Routes>
+            <Routes>
               <Route path="/" element={<Home />} />
 
               <Route path="/users" element={<UsersIndex />} />
@@ -111,11 +111,12 @@ export default function App() {
               <Route path="/themes/:id/edit" element={<ThemeEdit />} />
 
               <Route path="*" element={<Error404 />} />
-            </Routes> */}
+            </Routes>
           </main>
           
         </ThemeProvider>
       </UserProvider>
     </Router>
   );
-}
+};
+export default App;

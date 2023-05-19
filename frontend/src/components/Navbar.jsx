@@ -1,27 +1,30 @@
 import { useContext } from 'react';
+import { Link } from "react-router-dom";
 import { UserContext } from '../contexts/UserContext';
-import { ThemeContext } from '../contexts/ThemeContext.js';
 
 import './Navbar.css'
 
-export default function Navbar() {
+const Navbar = () => {
 
-  const { user, loginUser, logoutUser } = useContext(UserContext);
-  const { theme, changeTheme} = useContext(ThemeContext);
+    const { user } = useContext(UserContext);
 
-  // Use the user and theme values and functions
+    function handleClick() {
+    }
+    return (
+        <div className="Navbar">
+            <div className="NavbarLinks">
+                <Link to="/">
+                    Home
+                </Link>
+                <Link to={`/users/${user.userId}`}>
+                    User: {user.userUsername}
+                </Link>
+                <Link to="/users/create">
+                    New User
+                </Link>
+            </div>
+        </div>
+    );
+};
 
-  function handleClick () {
-//    console.log(JSON.stringify(changeTheme));
-  }
-  return (
-    <div className="Navbar">
-      <p>User: {user ? user.name : 'Guest'}</p>
-      <button onClick={loginUser}>Login</button>
-      <button onClick={logoutUser}>Logout</button>
-
-      <p>Theme: {JSON.stringify(theme)}</p>
-      <button onClick={handleClick}>Toggle Theme</button>
-    </div>
-  );
-}
+export default Navbar;
