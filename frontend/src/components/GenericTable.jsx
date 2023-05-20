@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
 const API = process.env.REACT_APP_API_URL;
@@ -10,14 +11,11 @@ const GenericTable = ({ tableData =[] }) => {
     useEffect(() => {
         axios.get(`${API}/users`)
         .then((response) => {
-            console.log("GTableUsers", JSON.stringify(response.data));
+            console.log("GTableUsers Axios", JSON.stringify(response.data));
             setUsers(response.data)
         })
         .catch((e) => console.warn ("GTable Catch", e));
     },[])
-
-    const formTableKeysArray = Object.keys(formData);
-
 
     const handleSubmit = (event) => {
         event.preventDefault();

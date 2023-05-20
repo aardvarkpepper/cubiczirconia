@@ -8,13 +8,14 @@ const Navbar = () => {
 
     const { user } = useContext(UserContext);
 
-    // function handleClick() {
-    // }
     return (
         <div className="Navbar">
             <div className="NavbarLinks">
                 <Link to="/" className="inlineComponent">
                     Home
+                </Link>
+                <Link to={`/users`} className="inlineComponent">
+                    User Index
                 </Link>
                 <Link to={`/users/${user.userId}`} className="inlineComponent">
                     User: {user.userUsername}

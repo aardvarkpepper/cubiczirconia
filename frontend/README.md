@@ -32,6 +32,8 @@ Object.keys returns an array of keys from an object, but the order is inconsiste
 
 Snake to camel, camel to snake.  Look at "humps" package for implementation, but write own.
 
+Ask about implmenetation and storing the entire users array in state.  Can just toggle, really, and have various checks.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
