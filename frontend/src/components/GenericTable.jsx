@@ -21,7 +21,7 @@ const GenericTable = ({ tableData = ([]), tableKey="" }) => {
             )
         } else {
             return (
-                <div>
+                <div className="tableContainer">
                     <table>
                         <thead>
                             <tr>
@@ -32,6 +32,7 @@ const GenericTable = ({ tableData = ([]), tableKey="" }) => {
                                         </th>
                                     )
                                 })}
+                                <th>Show </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,7 +46,13 @@ const GenericTable = ({ tableData = ([]), tableKey="" }) => {
                                                 </td>
                                             )
                                         })}
-
+                                        <td key={`${tableKey}${element}tablecelllink${index}`}>
+                                            <Link to={`/users/${element[tableDataKeysArray[0]]}`}>
+                                                <span>
+                                                    Show
+                                                </span>
+                                            </Link>
+                                        </td>
                                     </tr>
                                 )
                             })}

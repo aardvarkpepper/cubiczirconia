@@ -34,6 +34,10 @@ Snake to camel, camel to snake.  Look at "humps" package for implementation, but
 
 Ask about implmenetation and storing the entire users array in state.  Can just toggle, really, and have various checks.
 
+CSS styling uses App components, particularly for navbar fixed to prevent x-scrolling, and below that table header sticky.  But the component between the navbar and table header should be dynamic.
+
+Fix "generictable" reference to reference id.  As Object.keys order is not guaranteed (though apparently should be consistent), consider switch to Map or Set data structure.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

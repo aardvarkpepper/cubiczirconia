@@ -40,6 +40,13 @@
 /* sticky item makes parent element sticky container.
 multiple items needed to "define" sticky behavior. */
 header {
-  position: sticky;
+  /* position: sticky; */
+  position: fixed;
+  width: 100%;
   top: 0px;
+  height: 40px;
+}
+
+main {
+  padding-top: 40px;
 }
