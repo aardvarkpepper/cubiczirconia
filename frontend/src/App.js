@@ -84,7 +84,6 @@ const App = () => {
         <ThemeProvider>
 
           <header>
-            ham
             <Navbar />
           </header>
           <main>

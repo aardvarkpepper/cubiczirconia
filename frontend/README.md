@@ -28,6 +28,10 @@ practice if any?
 Redefine default theme to be an array of themes in database.
 This is added to array of user themes.
 
+Object.keys returns an array of keys from an object, but the order is inconsistent (browsers, hardware, etc.)  Create a linked list in sql that pulls correct order every time.
+
+Snake to camel, camel to snake.  Look at "humps" package for implementation, but write own.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

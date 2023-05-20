@@ -13,4 +13,9 @@
 .NavbarLinks {
     display: flex;
     justify-content: space-between;
+    background-color: lightblue;
+}
+
+.inlineComponent {
+    padding: 40px;
 }
