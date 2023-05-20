@@ -1,4 +1,4 @@
-import { snakeCaseToTitleCase } from "../../utils/utils.js";
+import { snakeCaseToTitleCase } from "../utils/utils.js";
 
 const UserDetails = ({userDetailsKeysArray, userDetails}) => {
     return (

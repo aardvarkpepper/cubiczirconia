@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import UserDetails from "./UserDetails";
-import UserEdit from "./UserEdit";
+import UserEdit from "../../components/UserEdit";
+import UserDetails from "../../components/UserDetails";
 
 const API = process.env.REACT_APP_API_URL;
 

@@ -28,7 +28,6 @@ import ThemesIndex from "./pages/themes/ThemesIndex.jsx";
 import UserBadges from "./pages/users/UserBadges.jsx";
 import UserCreate from "./pages/users/UserCreate.jsx";
 import UserShow from "./pages/users/UserShow.jsx";
-import UserEdit from "./pages/users/UserEdit.jsx";
 import UsersIndex from "./pages/users/UsersIndex.jsx";
 import UserThemes from "./pages/users/UserThemes.jsx";
 
