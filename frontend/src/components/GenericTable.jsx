@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
+import { snakeCaseToTitleCase } from "../utils/utils.js";
 import "./GenericTable.css";
 
 const API = process.env.REACT_APP_API_URL;
 
-const GenericTable = ({ tableData = [] }) => {
+const GenericTable = ({ tableData = ([]), tableKey="" }) => {
 
-    const tableDataKeysArray = Object.keys(tableData[0]);
+    let tableDataKeysArray = [];
+    if (tableData.length > 0) {
+        tableDataKeysArray = Object.keys(tableData[0]);
+    }
 
     const genericTableOutput = () => {
         if (tableData.length === 0) {
@@ -21,17 +25,30 @@ const GenericTable = ({ tableData = [] }) => {
                     <table>
                         <thead>
                             <tr>
-                                {tableDataKeysArray.map((element) => {
+                                {tableDataKeysArray.map((objectKey, index) => {
                                     return (
-                                        <th>
-                                            {element}
+                                        <th key={`${tableKey}${objectKey}tableheader${index}`}>
+                                            {snakeCaseToTitleCase(objectKey)}
                                         </th>
                                     )
                                 })}
                             </tr>
                         </thead>
                         <tbody>
+                            {tableData.map((element, index) => {
+                                return (
+                                    <tr key={`${tableKey}${element}tablerow${index}`}>
+                                        {tableDataKeysArray.map((objectKey, index) => {
+                                            return (
+                                                <td key={`${tableKey}${element}tablecell${index}`}>
+                                                    {element[objectKey]}
+                                                </td>
+                                            )
+                                        })}
 
+                                    </tr>
+                                )
+                            })}
                         </tbody>
 
                     </table>
