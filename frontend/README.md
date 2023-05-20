@@ -38,6 +38,10 @@ CSS styling uses App components, particularly for navbar fixed to prevent x-scro
 
 Fix "generictable" reference to reference id.  As Object.keys order is not guaranteed (though apparently should be consistent), consider switch to Map or Set data structure.
 
+For now, use Axios call to individual (record) and specifying by user (rather than dynamically for badges and themes) as dynamic link routing not covered in class, and insufficient time to research and implement new feature.
+
+Look again for how to use multiple params.  From different components?  From same component?
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

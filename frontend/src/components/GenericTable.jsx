@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { snakeCaseToTitleCase } from "../utils/utils.js";
 import "./GenericTable.css";
 
-const API = process.env.REACT_APP_API_URL;
-
 const GenericTable = ({ tableData = ([]), tableKey="" }) => {
 
     let tableDataKeysArray = [];
@@ -57,11 +55,8 @@ const GenericTable = ({ tableData = ([]), tableKey="" }) => {
                                 )
                             })}
                         </tbody>
-
                     </table>
-
                 </div>
-
             )
         }
         // if formType none
