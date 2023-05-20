@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+/* sticky item makes parent element sticky container.
+multiple items needed to "define" sticky behavior. */
+header {
+  position: sticky;
+  top: 0px;
+}

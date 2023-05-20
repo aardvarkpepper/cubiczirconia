@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import GenericTable from "../../components/GenericTable";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -10,7 +11,7 @@ const UsersIndex = () => {
     useEffect(() => {
         axios.get(`${API}/users`)
             .then((response) => {
-                console.log("UsersIndex response.data", response.data);
+                //console.log("UsersIndex response.data", response.data);
                 setUsers(response.data);
             })
             .catch((e) => console.warn("UsersIndex Axios catch", e));
@@ -19,7 +20,7 @@ const UsersIndex = () => {
     return (
         <div>
             <div>Front End UsersIndex</div>
-            {/* <div>{JSON.stringify(users)}</div> */}
+            <GenericTable tableData={users}/>
         </div>
     )
 };

@@ -1,0 +1,16 @@
+table, th, td {
+    border: 1px solid;
+}
+
+thead {
+    background-color: yellow;
+}
+
+.NavbarLinks {
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.inlineComponent {
+    padding: 40px;
+}

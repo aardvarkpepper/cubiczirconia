@@ -10,10 +10,13 @@
     z-index: 1;
 } */
 
+.Navbar {
+    background-color: lightcyan;
+}
+
 .NavbarLinks {
     display: flex;
     justify-content: space-between;
-    background-color: lightblue;
 }
 
 .inlineComponent {

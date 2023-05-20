@@ -1,26 +1,11 @@
-import axios from "axios";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import "./GenericTable.css";
 
 const API = process.env.REACT_APP_API_URL;
 
-const GenericTable = ({ tableData =[] }) => {
+const GenericTable = ({ tableData = [] }) => {
 
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        axios.get(`${API}/users`)
-        .then((response) => {
-            console.log("GTableUsers Axios", JSON.stringify(response.data));
-            setUsers(response.data)
-        })
-        .catch((e) => console.warn ("GTable Catch", e));
-    },[])
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        formFunction(formData);
-    }
+    const tableDataKeysArray = Object.keys(tableData[0]);
 
     const genericTableOutput = () => {
         if (tableData.length === 0) {
@@ -32,9 +17,27 @@ const GenericTable = ({ tableData =[] }) => {
             )
         } else {
             return (
-                <table>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                {tableDataKeysArray.map((element) => {
+                                    return (
+                                        <th>
+                                            {element}
+                                        </th>
+                                    )
+                                })}
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                </table>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
             )
         }
         // if formType none
@@ -45,4 +48,4 @@ const GenericTable = ({ tableData =[] }) => {
         </div>
     )
 };
-export default GenericForm;
+export default GenericTable;
