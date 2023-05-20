@@ -42,6 +42,18 @@ For now, use Axios call to individual (record) and specifying by user (rather th
 
 Look again for how to use multiple params.  From different components?  From same component?
 
+Mystery:  Why does the GenericTable css styling apply to the UserDetails table?
+
+Index passes variable down to "detail".  user setState set to variable.  If variable not set, then axios call to retrieve data.  (such as if URL called directly).  Render component to indicate if axios was called or not.
+
+Call axios 20 units at a time - limit what goes in state, limit rendering thousands potential components instead only 40 at a tie or whatever.
+
+Passing props.location.value through React Link does not work when page refreshed or using back/forwards buttons on browser.
+
+In UsersIndex, axios is called then props passed to sub-component "GenericTable".  But where we access individual users, accessing GenericForm, there is no parent component.  Perhaps I should create one.  It does seem logical, though this is not what we did in class.  
+
+Add escape clauses for UserEdit and UserDetails in case somehow data passed is null.  Though it shouldn't happen.  How can the component even be called outside of the wrapping context?  And the wrapping context provides the variable.  But it's useful in case someone else uses the component improperly, perhaps?  Encapsulation?
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
