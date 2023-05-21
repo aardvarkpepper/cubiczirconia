@@ -23,7 +23,7 @@ const GenericForm = ({ formDataObject = {}, formDataObjectKeysArray = [], setFor
                     <form className="formContainer" onSubmit={handleSubmit}>
                         {formDataObjectKeysArray.slice(1).map((keyElement) => {
                             return (
-                                <div className="formElement">
+                                <div className="formElement" key={`GenericForm${keyElement}`}>
                                     <label key={`keyElement`} htmlFor={keyElement}>
                                         {snakeCaseToTitleCase(keyElement)}: {insertSpace(2)}
                                     </label>

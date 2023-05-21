@@ -3,6 +3,7 @@ const users = express.Router({mergeParams: true});
 
 const {
     getAllUsersSortByUserId,
+    getOneUserByUserLoginName,
     getOneUser,
     createUser,
     deleteUser,
@@ -24,6 +25,18 @@ users.get('/', async (req, res) => {
 users.get('/:id', async (req, res) => {
     const { id } = req.params;
     const oneUser = await getOneUser(id);
+
+    if (oneUser.success) {
+        res.status(200).json(oneUser.payload);
+    } else {
+        res.status(400).json({ error: `Error: ${oneUser.payload}` });
+    }
+})
+
+//show route
+users.get('/user/:id', async (req, res) => {
+    const { id } = req.params;
+    const oneUser = await getOneUserByUserLoginName(id);
 
     if (oneUser.success) {
         res.status(200).json(oneUser.payload);

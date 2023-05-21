@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useParams, useNavigate } from "react-router-dom";
 import GenericForm from "./GenericForm";
+import { authentication } from "../utils/utils";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -24,8 +25,14 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUs
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        updateUser(userDetails);
-        setShowUserEdit(previous => !previous);
+        if (authentication(userDetails.user_access_level, 2)) {
+            console.log("Authentication UE", userDetails.user_access_level )
+            updateUser(userDetails);
+            setShowUserEdit(previous => !previous);
+        } else {
+            alert("User access level 2 required to edit record.")
+        }
+
     };
 
 

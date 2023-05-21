@@ -52,7 +52,7 @@ const UserShow = () => {
         if (showUserEdit) {
             return "View Details"
         } else {
-            return "Edit Details"
+            return "Go To Edit Details"
         }
     }
 

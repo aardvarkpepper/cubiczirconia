@@ -9,6 +9,7 @@ const UserCreate = () => {
 
     const [newUser, setNewUser] = useState({});
     const [userObjectKeysArray, setUserObjectKeysArray] = useState([]);
+    const [userList, setUserList] = useState([]);
 
     let navigate = useNavigate();
 
@@ -57,6 +58,14 @@ const UserCreate = () => {
         setUserObjectKeysArray(Object.keys(newUser));
     },[newUser])
 
+    useEffect(() => {
+        axios.get(`${API}/users`)
+            .then((response) => {
+                setUserList(response.data);
+            })
+            .catch((e) => console.warn("UsersIndex Axios catch", e));
+    }, [])
+
     const addUser = async (userToAdd) => {
         axios
         .post(`${API}/users`, userToAdd)
@@ -71,7 +80,11 @@ const UserCreate = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        addUser(newUser);
+        if (userList.filter(aUser => aUser.user_login_name === newUser.user_login_name).length > 0) {
+            alert("Login name already in use.  Please select another login name.")
+        } else {
+            addUser(newUser);
+        }
     }
 
     return (

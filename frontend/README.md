@@ -29,15 +29,19 @@ This is added to array of user themes.
 
 Object.keys returns an array of keys from an object, but the order is inconsistent (browsers, hardware, etc.)  Create a linked list in sql that pulls correct order every time.
 
-Snake to camel, camel to snake.  Look at "humps" package for implementation, but write own.
+*****
+Snake to camel, camel to snake.  Look at "humps" package for implementation, but write own.  WHEN/WHERE HUMPS? especially if dynamic.
+*****
 
-Ask about implmenetation and storing the entire users array in state.  Can just toggle, really, and have various checks.
+*****
+Ask about implmenetation and storing the entire users array in state.  Can just toggle, really, and have various checks.  INDUSTRY PRACTICES FOR STATE; have loads of state components just floating around, some local, some global-ish (user, theme).  Instead of separate axios call to individual element, reference the entire element list stored in state, with sort functions etc.  But this is not commonly done?
 
-CSS styling uses App components, particularly for navbar fixed to prevent x-scrolling, and below that table header sticky.  But the component between the navbar and table header should be dynamic.
+redux, mobx
+*****
 
 Fix "generictable" reference to reference id.  As Object.keys order is not guaranteed (though apparently should be consistent), consider switch to Map or Set data structure.
 
-For now, use Axios call to individual (record) and specifying by user (rather than dynamically for badges and themes) as dynamic link routing not covered in class, and insufficient time to research and implement new feature.
+For now, use Axios call to individual (record) and specifying by user (rather than dynamically for badges and themes) as dynamic Link routing not covered in class, and insufficient time to research and implement new feature.  Break Axios calls into api folder.
 
 Look again for how to use multiple params.  From different components?  From same component?
 
@@ -45,7 +49,12 @@ Mystery:  Why does the GenericTable css styling apply to the UserDetails table?
 
 Index passes variable down to "detail".  user setState set to variable.  If variable not set, then axios call to retrieve data.  (such as if URL called directly).  Render component to indicate if axios was called or not.
 
-Call axios 20 units at a time - limit what goes in state, limit rendering thousands potential components instead only 40 at a tie or whatever.
+*****
+Call axios 20 units at a time - limit what goes in state, LIMIT RENDERING thousands potential components instead only 40 at a tie or whatever.
+Is this backend or frontend?  Or is it a state management thing (get the entire list with one call, then get 20 queries at a time to solve rendering issues?)  It is a rendering, not memory issue?
+
+sQL LIMIT OFFSET 48 ETC.
+*****
 
 Passing props.location.value through React Link does not work when page refreshed or using back/forwards buttons on browser.
 
@@ -53,22 +62,107 @@ In UsersIndex, axios is called then props passed to sub-component "GenericTable"
 
 Add escape clauses for UserEdit and UserDetails in case somehow data passed is null.  Though it shouldn't happen.  How can the component even be called outside of the wrapping context?  And the wrapping context provides the variable.  But it's useful in case someone else uses the component improperly, perhaps?  Encapsulation?
 
-htmlFor in label required for other rendering?  But may be eliminated where label wraps input completely, at least for some browsers.
+*****
+htmlFor in label required for other rendering?  But may be eliminated where label wraps input completely, at least for some browsers.  Where/how do I look up versioning?  Like, putting input inside label won't require htmlFor, but that may not be all browsers.
+*****
 
 In GenericForm, using ...previous instead of deep copy.
-Correct form to use unique key.  This requires some thought.
+Correct form to use unique key.  This requires some thought.  What is the key naming protocol, considering data structure?  Plan for scalability and brevity.
 
 UserCreate uses state to take user because it's convenient.  But it's not really proper.  What if, for example, badge was created?  Badge is not in state.
 
 UserEdit is not really dynamic for deletion function.
 
-Look into 1 - checking data type of database (if even possible) and having form input type matching data type.  2 - checking input and edit data against "Set" data, constraining range of responses.
+*****
+
+MDN TABLE VERSION LIGHTHOUSE CHROME 
+PRACTICAL scalability - database to frontend.
+Look into 1 - checking data type of database (if even possible) and having form input type matching data type.  2 - checking input and edit data against "Set" data, constraining range of responses. - QUESTION - separate database to keep track of data types for front end form entry?  Is this standard practice?
+And constraints link between database, backend, and frontend how?  Simply duplicating constraints in database, in the frontend?
+Or keep a database of constraints?  But the database won't automatically update.
+
+https://dba.stackexchange.com/questions/214863/how-to-list-all-constraints-of-a-table-in-postgresql
+
+Apparently can import non-NOT NULL constraints.  (But what about NOT NULL?  Track separately?  But dynamic reference, undermines purpose.  Maybe try dummy data meeting constraints, and failure of null fields error return specifies what columns are set to non-null.)
+
+https://stackoverflow.com/questions/20194806/how-to-get-a-list-column-names-and-datatypes-of-a-table-in-postgresql
+
+for datatypes
+*****
 
 Slice is used for entry.  This is bad practice, as edit and  -->
 
 <!-- # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+html, email, specific for form data type.
+
+html is text only communication protocol.
+
+html, classname, id overrides css
+
+track eye moves. Copy youtube, amazon, simple stuff that emphasizes product.  one or two simple things that does something "cool".  Just a little flair.  Focus the product, and the IDEA of the product.
+look into design specs
+
+ui 
+
+MOBILE presentation
+
+flexbox - even space between elements
+layout with header, aside, main, if too small then main goes on top and aside goes below then grid is easier for that.  Grid is like newspaper layout.
+
+books on ux/ui design.
+
+"angel list" - startups (?) - wellfound.  Startups, wear a lot of hats, teach self everything, teaching minimal.
+midsize IBM or other, good training.
+
+Google, Netflix, don't really have junior positions.  Work somewhere 6-12 months first; the FAANG companies
+facebook, amazon, apple, netflix, google - apply after experience.  Maybe interneships, but even then not best
+use of time to apply.
+
+Ruby on rails - create CRUD app.  instant!  just add water.  Larabel for PHP.
+Nest.js  Sails.js (similar to Rails)  Convention over configuration; if just follow the rules then it'll work.
+Don't have to build functionality.  Just build it for you.  "The pit of success" - generally successful
+if made by yourself.  But in React, could build bad patterns or hard to maintain patterns.
+
+Rails - senior devs design it.  Just follow the pattern. Scalable &c.  (Look at Rails, does it right,
+industry standard.  How handle authentication?  What pattern?  MVC?  Restful routes.  (What's MVC ?))
+
+Tuesday, WEDS esp, thursday best days to come to campus.  Reach out to lillian, tristan.
+
+look into relative "benefits", selling points of different structures - like React.
+
+What large database projects use React.  Angular built by Google; Angular.js.  Then Facebook made React in 2014
+or 2015.  View, purely open source.  New Angular uses TypeScript.  Java likes the new Angular.  (New is very different from old for Angular.)  React load time - 40% Fellows get jobs with React.  ANyways, look at load time loading animation and/or games or something.  The Python/SQL thing.  But isn't . . . another database used?
+
+Numbers game.  Every interview a lesson.  What did I learn about company culture?  Don't sleep on it.  Go go go.
+
+MIT self-driving course 2-d racetrack?
+
+npm package "create james-app"
+
+(eventually?)
+
+Skeleton CSS https://cdnjs.com/libraries/skeleton
+
+padding, center form, reduce form size
+
+sass color variables
+
+ADD
+
+Login / logout functionality.
+
+Logo
+
+Template (change datatype, research template . . . color . . . palettes)
+
+https://v5.reactrouter.com/native/example/auth-workflow
+
+Login logout without authentication; shows flow of components.
+ -->
 
 # User App Front End
 

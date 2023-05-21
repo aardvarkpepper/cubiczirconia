@@ -27,6 +27,7 @@ import ThemesIndex from "./pages/themes/ThemesIndex.jsx";
 
 import UserBadges from "./pages/users/UserBadges.jsx";
 import UserCreate from "./pages/users/UserCreate.jsx";
+import UserLogin from "./pages/users/UserLogin.jsx";
 import UserShow from "./pages/users/UserShow.jsx";
 import UsersIndex from "./pages/users/UsersIndex.jsx";
 import UserThemes from "./pages/users/UserThemes.jsx";
@@ -91,6 +92,7 @@ const App = () => {
 
               <Route path="/users" element={<UsersIndex />} />
               <Route path="/users/new" element={<UserCreate />} />
+              <Route path="/user/login" element={<UserLogin />} />
               <Route exact path="/users/:id" element={<UserShow />} />
               <Route path="/users/:id/badges" element={<UserBadges />} />
               <Route path="/users/:id/themes" element={<UserThemes />} />

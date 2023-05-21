@@ -10,5 +10,8 @@ const insertSpace = (spaces) => {
     return "\u00A0".repeat(spaces)
 }
 
+const authentication = (has, needs) => {
+    return has >= needs
+}
 
-module.exports = {snakeCaseToTitleCase, insertSpace};
+module.exports = {snakeCaseToTitleCase, insertSpace, authentication};

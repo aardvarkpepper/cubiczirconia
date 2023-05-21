@@ -20,6 +20,16 @@ const getOneUser = async (userId) => {
   }
 }
 
+//show query, by 
+const getOneUserByUserLoginName = async (userId) => {
+  try {
+    const oneUser = await db.one("SELECT * FROM users WHERE user_login_name=$1;", userId);
+    return { success: true, payload: oneUser };
+  } catch (error) {
+    return { success: false, payload: error };
+  }
+}
+
 //create query.  Field specific.
 const createUser = async (userToAdd) => {
   const {
@@ -106,6 +116,7 @@ const updateUser = async (userId, userToUpdate) => {
 module.exports = {
   getAllUsersSortByUserId,
   getOneUser,
+  getOneUserByUserLoginName,
   createUser,
   deleteUser,
   updateUser
