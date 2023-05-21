@@ -162,6 +162,12 @@ Template (change datatype, research template . . . color . . . palettes)
 https://v5.reactrouter.com/native/example/auth-workflow
 
 Login logout without authentication; shows flow of components.
+
+Add object to reference action types and access level required to perform action.
+
+Write documentation for use.  CSS styling.  Adding to database.
+
+User Login should prevent duplicate usernames on edit as well.  Just create for now.  Also should be in util.
  -->
 
 # User App Front End

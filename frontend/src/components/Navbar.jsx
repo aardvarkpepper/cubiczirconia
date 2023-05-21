@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { Link } from "react-router-dom";
 import { UserContext } from '../contexts/UserContext';
+import { Link } from "react-router-dom";
 
 import './Navbar.css'
 
@@ -17,8 +17,8 @@ const Navbar = () => {
                 <Link to={`/users`} className="inlineComponent">
                     User Index
                 </Link>
-                <Link to={`/users/login`} className="inlineComponent">
-                    Current User: {user.userUsername}
+                <Link to={`/user/login`} className="inlineComponent">
+                    Current User: {user.user_login_name}; Access Level: {user.user_access_level}
                 </Link>
                 <Link to="/users/new" className="inlineComponent">
                     New User
