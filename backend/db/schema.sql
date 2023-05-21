@@ -31,13 +31,15 @@ CREATE TABLE users (
 CREATE TABLE themes (
     theme_id SERIAL PRIMARY KEY,
     theme_name VARCHAR(40) NOT NULL,
-    theme_display_size VARCHAR(40) NOT NULL,
     theme_show_badges BOOLEAN NOT NULL,
-    theme_palette VARCHAR(20) NOT NULL,
-    theme_font VARCHAR(40) NOT NULL,
-    theme_text_color VARCHAR(40) NOT NULL,
-    theme_text_size VARCHAR(20) NOT NULL,
-    theme_background VARCHAR(20) NOT NULL,
+    background_color VARCHAR(20) DEFAULT 'transparent',
+    color VARCHAR(20) DEFAULT 'black',
+    font_family VARCHAR(40) DEFAULT 'Arial, sans-serif',
+    font_weight VARCHAR(20) DEFAULT 'normal',
+    font_size VARCHAR(20) DEFAULT '14px',
+    border_color VARCHAR(20) DEFAULT 'transparent',
+    border_style VARCHAR(20) DEFAULT 'none',
+    border_width VARCHAR(20) DEFAULT '0',
     user_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );

@@ -30,7 +30,6 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUs
     const handleSubmit = (event) => {
         event.preventDefault();
         if (authentication(user.user_access_level, 3)) {
-            console.log("Authentication UE", userDetails.user_access_level )
             updateUser(userDetails);
             setShowUserEdit(previous => !previous);
         } else {
