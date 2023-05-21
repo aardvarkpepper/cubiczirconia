@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="Navbar">
             <div className="NavbarLinks">
                 <Link to="/" className="inlineComponent">
-                    Home
+                    User App Home
                 </Link>
                 <Link to={`/users`} className="inlineComponent">
                     User Index

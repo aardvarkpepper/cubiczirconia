@@ -1,5 +1,4 @@
-
-using port 3333
+<!-- using port 3333
 
 Notes to self:  Change "image type" to reference separate database.  Toggle between local, url1, url2, etc.
 For badges and users.  Disassociate entirely, and turn them into separate databases, so for example
@@ -65,9 +64,19 @@ UserEdit is not really dynamic for deletion function.
 
 Look into 1 - checking data type of database (if even possible) and having form input type matching data type.  2 - checking input and edit data against "Set" data, constraining range of responses.
 
-# Getting Started with Create React App
+Slice is used for entry.  This is bad practice, as edit and  -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- # Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
+
+# User App Front End
+
+Use Navbar element at top to navigate between home, user index, and create new user views.
+
+A full-stack application using front end actions to interact with back end that connects to database.
+
+Some dynamic references and formatting applied.
 
 ## Available Scripts
 
@@ -81,7 +90,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+<!-- ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
@@ -134,4 +143,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
