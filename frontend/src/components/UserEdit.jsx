@@ -7,16 +7,31 @@ import GenericForm from "./GenericForm";
 
 const API = process.env.REACT_APP_API_URL;
 
-const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails }) => {
+const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUserEdit }) => {
 
-    // const { id } = useParams();
-    // let navigate = useNavigate();
+    const { id } = useParams();
+    let navigate = useNavigate();
     // const [userEditDetails, setUserEditDetails] = useState({});
     // const [userKeys, setUserKeys] = useState([]);
 
-    // const handleSubmit = () => {
+    // Update
+    const updateUser = (updatedUser) => {
+        axios
+            .put(`${API}/users/${id}`, updatedUser)
+            .then(
+                () => {
+                    navigate(`/users/${id}`);
+                },
+                (error) => console.error(error)
+            )
+            .catch((c) => console.warn("catch", c));
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        updateUser(userDetails);
+        setShowUserEdit(previous => !previous);
+    };
 
-    // }
 
     // const updateProduct = (updatedProduct) => {
     //     axios
@@ -60,6 +75,8 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails }) => {
             formDataObject = {userDetails}
             setFormDataObject={setUserDetails}
             formDataObjectKeysArray = {userDetailsKeysArray}
+            handleSubmit={handleSubmit}
+            formType="Edit Details"
             />
 
         </div>

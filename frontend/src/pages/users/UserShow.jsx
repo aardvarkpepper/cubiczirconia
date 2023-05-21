@@ -31,6 +31,7 @@ const UserShow = () => {
                     userDetailsKeysArray={userDetailsKeysArray}
                     userDetails={userDetails}
                     setUserDetails={setUserDetails}
+                    setShowUserEdit={setShowUserEdit}
                 />
             )
         } else {
@@ -57,7 +58,7 @@ const UserShow = () => {
 
     return (
         <div>
-            <div>Front End UserDetails</div>
+            <div>Front End UserShow</div>
             {showUserDetailsOrUserEdit()}
             <button onClick={toggleDetailsVsEdit}>{toggleButtonText()}</button>
         </div>

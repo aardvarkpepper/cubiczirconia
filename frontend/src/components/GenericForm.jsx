@@ -4,7 +4,7 @@ import './GenericForm.css';
 import { snakeCaseToTitleCase, insertSpace } from "../utils/utils.js";
 
 
-const GenericForm = ({ formDataObject = {}, formDataObjectKeysArray = [], setFormDataObject = () => { }, formType = "none" }) => {
+const GenericForm = ({ formDataObject = {}, formDataObjectKeysArray = [], setFormDataObject = () => {}, handleSubmit = () => {} , formType = "none" }) => {
 
     // const { user, loginUser, logoutUser } = useContext(UserContext);
     // const formDataKeysArray = Object.keys(formData);
@@ -29,7 +29,7 @@ const GenericForm = ({ formDataObject = {}, formDataObjectKeysArray = [], setFor
         } else {
             return (
                 <div>
-                    <form className="formContainer">
+                    <form className="formContainer" onSubmit={handleSubmit}>
                         {formDataObjectKeysArray.slice(1).map((keyElement) => {
                             return (
                                 <div className="formElement">
@@ -48,11 +48,11 @@ const GenericForm = ({ formDataObject = {}, formDataObjectKeysArray = [], setFor
                                 </div>
                             )
                         })}
+                        <button type="submit">{formType}</button>
                     </form>
                 </div>
             )
         }
-        // if formType none
     }
     return (
         <div className="GenericForm">
@@ -61,38 +61,3 @@ const GenericForm = ({ formDataObject = {}, formDataObjectKeysArray = [], setFor
     )
 };
 export default GenericForm;
-
-
-// ==
-
-// In parent Component
-
-// import React from 'react';
-// import GenericForm from './GenericForm';
-
-// const ObjectForm = ({ objectType, objectData, onSave }) => {
-//   const isEdit = !!objectData; // Check if objectData exists for edit operation
-
-//   const handleSubmit = (formData) => {
-//     if (isEdit) {
-//       // Perform edit operation
-//       // ...
-//     } else {
-//       // Perform create operation
-//       // ...
-//     }
-//     onSave();
-//   };
-
-//   return (
-//     <div>
-//       <h2>{isEdit ? `Edit ${objectType}` : `Create ${objectType}`}</h2>
-//       <GenericForm formData={objectData} onSubmit={handleSubmit} isEdit={isEdit} />
-//     </div>
-//   );
-// };
-
-// export default ObjectForm;
-
-// ==
-
