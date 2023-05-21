@@ -1,12 +1,12 @@
-import { useContext } from 'react';
+//import { useContext } from 'react';
 import { Link } from "react-router-dom";
-import { UserContext } from '../contexts/UserContext';
+//import { UserContext } from '../contexts/UserContext';
 
 import './Navbar.css'
 
 const Navbar = () => {
 
-    const { user } = useContext(UserContext);
+ //   const { user } = useContext(UserContext);
 
     return (
         <div className="Navbar">
@@ -17,9 +17,9 @@ const Navbar = () => {
                 <Link to={`/users`} className="inlineComponent">
                     User Index
                 </Link>
-                <Link to={`/users/${user.userId}`} className="inlineComponent">
+                {/* <Link to={`/users/${user.userId}`} className="inlineComponent">
                     User: {user.userUsername}
-                </Link>
+                </Link> */}
                 <Link to="/users/create" className="inlineComponent">
                     New User
                 </Link>

@@ -1,18 +1,9 @@
-import axios from 'axios';
-import React, { Component } from 'react';
+// import { Component } from 'react';
 import './GenericForm.css';
 import { snakeCaseToTitleCase, insertSpace } from "../utils/utils.js";
 
 
 const GenericForm = ({ formDataObject = {}, formDataObjectKeysArray = [], setFormDataObject = () => {}, handleSubmit = () => {} , formType = "none" }) => {
-
-    // const { user, loginUser, logoutUser } = useContext(UserContext);
-    // const formDataKeysArray = Object.keys(formData);
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     formFunction(formData);
-    // }
 
     const handleTextChange = (event) => {
         setFormDataObject({ ...formDataObject, [event.target.id]: event.target.value });

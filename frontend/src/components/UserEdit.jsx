@@ -1,9 +1,6 @@
 import axios from 'axios';
-import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { snakeCaseToTitleCase } from "../utils/utils.js";
+import { useParams, useNavigate } from "react-router-dom";
 import GenericForm from "./GenericForm";
-
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -33,38 +30,26 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUs
     };
 
 
-    // const updateProduct = (updatedProduct) => {
-    //     axios
-    //         .put(`${API}/products/${id}`, updatedProduct)
-    //         .then(
-    //             () => {
-    //                 navigate(`/retailer/products/${id}`);
-    //             },
-    //             (error) => console.error(error)
-    //         )
-    //         .catch((c) => console.warn("catch", c));
-    // }
+    //delete
+    const deleteUser = () => {
+        axios.delete(`${API}/users/${id}`)
+            .then(() => {
+                navigate(`/users`);
+            },
+                (error) => console.error(error)
+            )
+            .catch((c) => console.warn("catch", c))
+    };
 
-    // //delete
-    // const deleteProduct = () => {
-    //     axios.delete(`${API}/products/${id}`)
-    //         .then(() => {
-    //             navigate(`/retailer/products`);
-    //         },
-    //             (error) => console.error(error)
-    //         )
-    //         .catch((c) => console.warn("catch", c))
-    // };
-
-    // const handleDelete = () => {
-    //     const response = window.confirm("Really delete this product?")
-    //     if (response) {
-    //         alert("OK, deleting product.")
-    //         deleteProduct();
-    //     } else {
-    //         alert("Deletion cancelled.")
-    //     }
-    // };
+    const handleDelete = () => {
+        const response = window.confirm("Really delete this record?")
+        if (response) {
+            alert("OK, deleting product.")
+            deleteUser();
+        } else {
+            alert("Deletion cancelled.")
+        }
+    };
 
     return (
         <div>
@@ -78,7 +63,7 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUs
             handleSubmit={handleSubmit}
             formType="Edit Details"
             />
-
+            <button onClick={handleDelete}>Delete Record</button>
         </div>
     )
 };

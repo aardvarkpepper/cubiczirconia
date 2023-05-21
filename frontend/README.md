@@ -59,6 +59,10 @@ htmlFor in label required for other rendering?  But may be eliminated where labe
 In GenericForm, using ...previous instead of deep copy.
 Correct form to use unique key.  This requires some thought.
 
+UserCreate uses state to take user because it's convenient.  But it's not really proper.  What if, for example, badge was created?  Badge is not in state.
+
+UserEdit is not really dynamic for deletion function.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
