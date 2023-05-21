@@ -30,6 +30,7 @@ const UserShow = () => {
                 <UserEdit
                     userDetailsKeysArray={userDetailsKeysArray}
                     userDetails={userDetails}
+                    setUserDetails={setUserDetails}
                 />
             )
         } else {

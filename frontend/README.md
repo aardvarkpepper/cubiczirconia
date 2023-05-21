@@ -54,6 +54,11 @@ In UsersIndex, axios is called then props passed to sub-component "GenericTable"
 
 Add escape clauses for UserEdit and UserDetails in case somehow data passed is null.  Though it shouldn't happen.  How can the component even be called outside of the wrapping context?  And the wrapping context provides the variable.  But it's useful in case someone else uses the component improperly, perhaps?  Encapsulation?
 
+htmlFor in label required for other rendering?  But may be eliminated where label wraps input completely, at least for some browsers.
+
+In GenericForm, using ...previous instead of deep copy.
+Correct form to use unique key.  This requires some thought.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

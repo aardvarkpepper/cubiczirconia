@@ -2,11 +2,12 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { snakeCaseToTitleCase } from "../utils/utils.js";
+import GenericForm from "./GenericForm";
 
 
 const API = process.env.REACT_APP_API_URL;
 
-const UserEdit = ({ userDetailsKeysArray, userDetails }) => {
+const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails }) => {
 
     // const { id } = useParams();
     // let navigate = useNavigate();
@@ -53,28 +54,13 @@ const UserEdit = ({ userDetailsKeysArray, userDetails }) => {
     return (
         <div>
             <div>Front End UserEdit</div>
-            <div>
-                UserEDIT JSON STRINGIFY
-            </div>
-            <div>
-                {JSON.stringify(userDetails)}
-            </div>
-            <div>
-                UserEDIT JSON STRINGIFY KEYS ARRAY
-            </div>
-            <div>
-                {JSON.stringify(userDetailsKeysArray)}
-            </div>
-            {/* <form onSubmit={handleSubmit}>
-                {setUserKeys.map((userKey) => {
-                    <label>
-
-                    </label>
-
-                })}
-
-            </form> */}
-
+            <div>ID numbers may not be changed.</div>
+            <div>The ID number for this record is {userDetails.user_id}</div>
+            <GenericForm 
+            formDataObject = {userDetails}
+            setFormDataObject={setUserDetails}
+            formDataObjectKeysArray = {userDetailsKeysArray}
+            />
 
         </div>
     )

@@ -1,18 +1,25 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import './GenericForm.css';
+import { snakeCaseToTitleCase, insertSpace } from "../utils/utils.js";
 
-const GenericForm = ({ formData ={}, formFunction = ()=>{}, formType = "none" }) => {
 
-    const { user, loginUser, logoutUser } = useContext(UserContext);
-    const formDataKeysArray = Object.keys(formData);
+const GenericForm = ({ formDataObject = {}, formDataObjectKeysArray = [], setFormDataObject = () => { }, formType = "none" }) => {
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        formFunction(formData);
-    }
+    // const { user, loginUser, logoutUser } = useContext(UserContext);
+    // const formDataKeysArray = Object.keys(formData);
+
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     formFunction(formData);
+    // }
+
+    const handleTextChange = (event) => {
+        setFormDataObject({ ...formDataObject, [event.target.id]: event.target.value });
+    };
 
     const genericFormOutput = () => {
-        if (formType === "none") {
+        if (!formDataObjectKeysArray.length) {
             return (
                 <div>
                     <div>This form component requires particular arguments to be passed in from a parent element.</div>
@@ -21,9 +28,26 @@ const GenericForm = ({ formData ={}, formFunction = ()=>{}, formType = "none" })
             )
         } else {
             return (
-                <div className="formContainer">
-                    <form>
-
+                <div>
+                    <form className="formContainer">
+                        {formDataObjectKeysArray.slice(1).map((keyElement) => {
+                            return (
+                                <div className="formElement">
+                                    <label key={`keyElement`} htmlFor={keyElement}>
+                                        {snakeCaseToTitleCase(keyElement)}: {insertSpace(2)}
+                                    </label>
+                                    <input
+                                        id={keyElement}
+                                        value={formDataObject[keyElement]}
+                                        type="text"
+                                        onChange={handleTextChange}
+                                        placeholder={formDataObject[keyElement]}
+                                        required
+                                    />
+                                    <br />
+                                </div>
+                            )
+                        })}
                     </form>
                 </div>
             )
@@ -32,9 +56,7 @@ const GenericForm = ({ formData ={}, formFunction = ()=>{}, formType = "none" })
     }
     return (
         <div className="GenericForm">
-            <form onSubmit={handleSubmit}>
-                <button type="submit">{formType}</button>
-            </form>
+            {genericFormOutput()}
         </div>
     )
 };

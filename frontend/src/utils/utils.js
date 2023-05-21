@@ -6,4 +6,9 @@ const snakeCaseToTitleCase = (stringToConvert) => {
         .join(" ");
 };
 
-module.exports = {snakeCaseToTitleCase};
+const insertSpace = (spaces) => {
+    return "\u00A0".repeat(spaces)
+}
+
+
+module.exports = {snakeCaseToTitleCase, insertSpace};
