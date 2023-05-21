@@ -1,7 +1,8 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import GenericForm from "../../components/GenericForm";
+import { UserContext } from '../../contexts/UserContext';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -10,6 +11,8 @@ const UserCreate = () => {
     const [newUser, setNewUser] = useState({});
     const [userObjectKeysArray, setUserObjectKeysArray] = useState([]);
     const [userList, setUserList] = useState([]);
+
+    const { user } = useContext(UserContext);
 
     let navigate = useNavigate();
 
@@ -80,7 +83,9 @@ const UserCreate = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (userList.filter(aUser => aUser.user_login_name === newUser.user_login_name).length > 0) {
+        if(user.user_access_level < 2) {
+            alert("Access level 2 required to create new user.")
+        } else if (userList.filter(aUser => aUser.user_login_name === newUser.user_login_name).length > 0) {
             alert("Login name already in use.  Please select another login name.")
         } else {
             addUser(newUser);

@@ -2,12 +2,16 @@ import axios from 'axios';
 import { useParams, useNavigate } from "react-router-dom";
 import GenericForm from "./GenericForm";
 import { authentication } from "../utils/utils";
+import { useContext } from 'react';
+import { UserContext } from '../contexts/UserContext';
 
 const API = process.env.REACT_APP_API_URL;
 
 const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUserEdit }) => {
 
     const { id } = useParams();
+    const { user } = useContext(UserContext);
+
     let navigate = useNavigate();
 
     // Update
@@ -25,16 +29,15 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUs
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (authentication(userDetails.user_access_level, 2)) {
+        if (authentication(user.user_access_level, 3)) {
             console.log("Authentication UE", userDetails.user_access_level )
             updateUser(userDetails);
             setShowUserEdit(previous => !previous);
         } else {
-            alert("User access level 2 required to edit record.")
+            alert("User access level 3 required to edit record.")
         }
 
     };
-
 
     //delete
     const deleteUser = () => {
@@ -48,12 +51,16 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUs
     };
 
     const handleDelete = () => {
-        const response = window.confirm("Really delete this record?")
-        if (response) {
-            alert("OK, deleting product.")
-            deleteUser();
+        if(user.user_access_level < 4) {
+            alert("Access level 4 required to delete user record.")
         } else {
-            alert("Deletion cancelled.")
+            const response = window.confirm("Really delete this record?")
+            if (response) {
+                alert("OK, deleting user.")
+                deleteUser();
+            } else {
+                alert("Deletion cancelled.")
+            }
         }
     };
 

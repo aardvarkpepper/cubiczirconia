@@ -28,11 +28,9 @@ const UserLogin = () => {
             return (userToCheck.user_login_name === loginAttemptUser.loginName)
         });
 
-
         if (negativeChecker < 0) {
             alert("Login name not found.  Please create a new user, or check login name entry.")
         } else if (userListToCheck[negativeChecker].user_login_password !== loginAttemptUser.loginPassword) {
-            console.log("Internals", userListToCheck[negativeChecker].user_login_password , loginAttemptUser.loginName);
             alert ("Password not found for this login name")
         } else {
             loginUser(userListToCheck[negativeChecker])
