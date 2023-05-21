@@ -63,6 +63,8 @@ UserCreate uses state to take user because it's convenient.  But it's not really
 
 UserEdit is not really dynamic for deletion function.
 
+Look into 1 - checking data type of database (if even possible) and having form input type matching data type.  2 - checking input and edit data against "Set" data, constraining range of responses.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

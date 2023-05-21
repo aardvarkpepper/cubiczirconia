@@ -20,7 +20,7 @@ const Navbar = () => {
                 {/* <Link to={`/users/${user.userId}`} className="inlineComponent">
                     User: {user.userUsername}
                 </Link> */}
-                <Link to="/users/create" className="inlineComponent">
+                <Link to="/users/new" className="inlineComponent">
                     New User
                 </Link>
             </div>

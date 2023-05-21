@@ -8,8 +8,6 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUs
 
     const { id } = useParams();
     let navigate = useNavigate();
-    // const [userEditDetails, setUserEditDetails] = useState({});
-    // const [userKeys, setUserKeys] = useState([]);
 
     // Update
     const updateUser = (updatedUser) => {
@@ -23,6 +21,7 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUs
             )
             .catch((c) => console.warn("catch", c));
     }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         updateUser(userDetails);
