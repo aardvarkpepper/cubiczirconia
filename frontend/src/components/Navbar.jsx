@@ -20,8 +20,8 @@ const Navbar = () => {
                 <Link to={`/user/login`} className="inlineComponent">
                     Current User: {user.user_login_name}; (Access Level: {user.user_access_level})
                 </Link>
-                <Link to={`/users/${user.user_id}/themes`} className="inlineComponent">
-                    User Themes
+                <Link to={`/users/${user.user_id}/settings`} className="inlineComponent">
+                    Settings
                 </Link>
                 <Link to="/users/new" className="inlineComponent">
                     New User

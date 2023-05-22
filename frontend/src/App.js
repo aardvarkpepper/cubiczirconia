@@ -30,7 +30,7 @@ import UserCreate from "./pages/users/UserCreate.jsx";
 import UserLogin from "./pages/users/UserLogin.jsx";
 import UserShow from "./pages/users/UserShow.jsx";
 import UsersIndex from "./pages/users/UsersIndex.jsx";
-import UserThemes from "./pages/users/UserThemes.jsx";
+import UserSettings from "./pages/users/UserSettings.jsx";
 
 /*
 Create single component that serves for both edit and new.
@@ -95,7 +95,7 @@ const App = () => {
               <Route path="/user/login" element={<UserLogin />} />
               <Route exact path="/users/:id" element={<UserShow />} />
               <Route path="/users/:id/badges" element={<UserBadges />} />
-              <Route path="/users/:id/themes" element={<UserThemes />} />
+              <Route path="/users/:id/settings" element={<UserSettings />} />
 
               <Route path="/badges" element={<BadgesIndex />} />
               <Route path="/badges/new" element={<BadgeCreate />} />
