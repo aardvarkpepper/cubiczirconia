@@ -31,8 +31,6 @@ VALUES
 ('Sunny Theme', true, 'PaleGoldenRod', 'DarkOliveGreen', 'Georgia, serif', 'normal', '16px', 'OliveDrab', 'solid', '2px', 4),
 ('Snowfall Theme', true, 'WhiteSmoke', 'MidnightBlue', 'Arial, sans-serif', 'bold', '14px', 'LightSteelBlue', 'solid', '1px', 4);
 
-
-
 INSERT INTO badges 
 (badge_name, badge_description, badge_image_local)
 VALUES

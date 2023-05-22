@@ -168,6 +168,45 @@ Add object to reference action types and access level required to perform action
 Write documentation for use.  CSS styling.  Adding to database.
 
 User Login should prevent duplicate usernames on edit as well.  Just create for now.  Also should be in util.
+
+
+***** Theme notes
+/*
+
+    theme_id SERIAL PRIMARY KEY,
+    theme_name VARCHAR(40) NOT NULL,
+    theme_show_badges BOOLEAN NOT NULL,
+    background_color VARCHAR(20)
+    color 
+    font_family 
+    font_weight 
+    font_size 
+    border_color 
+    border_style
+    border_width
+    user_id INT NOT NULL,
+
+    Convert snake to camel
+
+    color: textcolor
+    fontfamily: arial, verdana, tahoma, Times New Roman
+    Georgia, Garamond, Courier New
+    Arial, sans-serif; if Arial not available, generic sans-serif used.
+    #000000 reference works too (hexadecimal)
+    */
+
+    /*
+    Set the fields I want.  Pull the ones I don't want out
+    of the axios call with deconstruction.  Set the remainder
+    to state.  Aggregate multiple axios calls.
+
+    Find and replace all components like div with Div,
+    as Bootstrap does.
+    */
+
+    Reconsider UserThemes.jsx.  See how the axios call has nothing to do with any front end component.  It's just a call, it's just data.  ID is pulled from URL, then put into a call to the backend; apart from that there's no interaction between front and backend and database.
+    ***** END THEME NOTES
+
  -->
 
 # User App Front End
