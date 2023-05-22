@@ -77,16 +77,14 @@ const UserThemes = () => {
                 <div>
                     This component's component-based in-line styling also depends on "theme" state, through src-styledComponents-Div.jsx.  Normal CSS priority applies; again, in-line styling of a component overrides className styling.
                 </div>
-                <div>
+                <div className="userThemesExampleContainer">
                     <div>
-                        <div>
-                            Child components are also affected by styling, except, in effect, for borders.
-                        </div>
-                        <userthemecomponent>
-                            However, child component styling (for selector, className, and id) overwrites parent in-line styling.
-                        </userthemecomponent>
-                        <h1>H tags overwrite size </h1>
+                        Child components are also affected by styling, except, in effect, for borders.
                     </div>
+                    <p>
+                        However, child component styling (for selector, className, and id) overwrites parent in-line styling.
+                    </p>
+                    <h1>H tags overwrite size </h1>
                 </div>
             </Div>
             <div>
@@ -95,7 +93,7 @@ const UserThemes = () => {
             </div>
             {themesArray.map((themeObject) => {
                 return (
-                    <div>
+                    <div key={`UserThemes${themeObject.theme_id}`}>
                         <span>Switch to {themeObject.theme_name}:</span>
                         <button onClick={() => handleClick(themeObject)}>Click</button>
                         {/* <div>

@@ -207,7 +207,13 @@ User Login should prevent duplicate usernames on edit as well.  Just create for 
     Reconsider UserThemes.jsx.  See how the axios call has nothing to do with any front end component.  It's just a call, it's just data.  ID is pulled from URL, then put into a call to the backend; apart from that there's no interaction between front and backend and database.
     ***** END THEME NOTES
 
-    Cleanup files (e.g. userSettings is now component, not a page.)
+    Cleanup files (e.g. userSettings is now component, not a page. - fixed, but future)
+
+    Create file, flowchart, data structures to reduce calls to server, local file size, boost or reduce performance (?) with customizable settings.  Need to monitor performance (how)?  But also, stuff like make sure theme array data only lives in state locally in the theme component; the *chosen* theme is nearly global. but the others, no.
+
+    Plan out data structure, one to many, many to many. Anticipate things like user settings having a default theme.  Like building in ability to add a secondary theme.  Modularity, reusability, encapsulation.
+
+    Build out the theme selection component a little.  Also, implement Set or other validation on data types.  How to do this?  Local implementation for each and every variable?
 
  -->
 
