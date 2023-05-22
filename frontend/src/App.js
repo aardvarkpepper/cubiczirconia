@@ -32,6 +32,8 @@ import UserShow from "./pages/users/UserShow.jsx";
 import UsersIndex from "./pages/users/UsersIndex.jsx";
 import UserSettings from "./pages/users/UserSettings.jsx";
 
+import PrngHome from "./pages/prng/PrngHome.jsx";
+
 /*
 Create single component that serves for both edit and new.
 Link calls the component with state.
@@ -108,6 +110,8 @@ const App = () => {
               <Route path="/themes/new" element={<ThemeCreate />} />
               <Route exact path="/themes/:id" element={<ThemeDetails />} />
               <Route path="/themes/:id/edit" element={<ThemeEdit />} />
+
+              <Route path="/prnghome" element={<PrngHome />} />
 
               <Route path="*" element={<Error404 />} />
             </Routes>

@@ -88,6 +88,8 @@ Apparently can import non-NOT NULL constraints.  (But what about NOT NULL?  Trac
 https://stackoverflow.com/questions/20194806/how-to-get-a-list-column-names-and-datatypes-of-a-table-in-postgresql
 
 for datatypes
+
+CSS "specificity" determines which style takes priority.
 *****
 
 Slice is used for entry.  This is bad practice, as edit and  -->
