@@ -1,5 +1,10 @@
-.box {
+.userThemesExampleBox {
     border-style: solid;
     border-color: gold;
     border-width: 2px;
+    color: black;
+}
+
+userthemecomponent {
+    color: blue;
 }

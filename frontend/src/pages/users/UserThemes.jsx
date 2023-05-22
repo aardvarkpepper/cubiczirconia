@@ -68,16 +68,22 @@ const UserThemes = () => {
         <div>
             <div>Front End UserThemes</div>
             {/* <div className="box">Box style</div> */}
-            <div style={theme} className="box">This component's in-line styling depends on "theme" state in src-contexts-ThemeContext. </div>
-            <Div className="box">
+            <div style={theme} className="userThemesExampleBox">
+                This component's in-line styling depends on "theme" state in src-contexts-ThemeContext. Normal CSS priority applies; in-line styling of a component overrides className styling.
+            </div>
+            <Div className="userThemesExampleBox">
                 <div>
-                    This component's component-based styling also depends on "theme" state, through src-styledComponents-Div.jsx.
+                    This component's component-based in-line styling also depends on "theme" state, through src-styledComponents-Div.jsx.  Normal CSS priority applies; again, in-line styling of a component overrides className styling.
                 </div>
                 <div>
                     <div>
                         <div>
-                            Child components are also affected by styling.
+                            Child components are also affected by styling, except, in effect, for borders.
                         </div>
+                        <userthemecomponent>
+                            However, child component styling (for selector, className, and id) overwrites parent in-line styling.
+                        </userthemecomponent>
+                        <h1>H tags overwrite size </h1>
                     </div>
                 </div>
             </Div>
@@ -96,7 +102,6 @@ const UserThemes = () => {
                     </div>
                 )
             })}
-
         </div>
     )
 };
