@@ -8,22 +8,37 @@ Each user has a "default" appended to their themes array.
 export const ThemeProvider = ({ children }) => {
 
     const [theme, setTheme] = useState({
-        background_color: "transparent",
+        backgroundColor: "transparent",
         color: "black",
-        font_family: "Arial, sans-serif",
-        font_weight: "",
-        font_size: "14px",
-        border_color: "transparent",
-        border_style: "",
-        border_width: ""
+        fontFamily: "Arial, sans-serif",
+        fontWeight: "",
+        fontSize: "14px",
+        borderColor: "transparent",
+        borderStyle: "",
+        borderWidth: ""
     });
 
     const changeTheme = (themeData) => {
         setTheme(themeData);
     };
 
+    const defaultTheme = () => {
+        setTheme (
+            {
+                backgroundColor: "transparent",
+                color: "black",
+                fontFamily: "Arial, sans-serif",
+                fontWeight: "",
+                fontSize: "14px",
+                borderColor: "transparent",
+                borderStyle: "",
+                borderWidth: ""
+            }
+        )
+    };
+
     return (
-        <ThemeContext.Provider value={{ theme, changeTheme }}>
+        <ThemeContext.Provider value={{ theme, changeTheme, defaultTheme }}>
             {children}
         </ThemeContext.Provider>
     )

@@ -1,22 +1,25 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
+import { ThemeContext } from '../../contexts/ThemeContext';
 import Div from "../../styledComponents/Div.jsx";
+import "./UserThemes.css";
 
 const API = process.env.REACT_APP_API_URL;
 
 const UserThemes = () => {
 
     const [themesArray, setThemesArray] = useState([]);
+    const { theme, changeTheme, defaultTheme } = useContext(ThemeContext);
     const { id } = useParams();
 
     useEffect(() => {
         axios.get(`${API}/themes/user/${id}`)
-        .then((response) => {
-            setThemesArray(response.data)
-        })
-        .catch((e) => console.warn("catch", e));
-    },[id]);
+            .then((response) => {
+                setThemesArray(response.data)
+            })
+            .catch((e) => console.warn("catch", e));
+    }, [id]);
 
     /*
         const [theme, setTheme] = useState({
@@ -47,22 +50,29 @@ const UserThemes = () => {
 
     */
 
-    const handleClick = () => {
-
-    }
-
+    const handleClick = (updatingThemeObject) => {
+        const reformattedObject = {
+            backgroundColor: updatingThemeObject.background_color,
+            color: updatingThemeObject.color,
+            fontFamily: updatingThemeObject.font_family,
+            fontWeight: updatingThemeObject.font_weight,
+            fontSize: updatingThemeObject.font_size,
+            borderColor: updatingThemeObject.border_color,
+            borderStyle: updatingThemeObject.border_style,
+            borderWidth: updatingThemeObject.border_width,
+        };
+        changeTheme(reformattedObject);
+    };
 
     return (
         <div>
             <div>Front End UserThemes</div>
-            <Div>
+            {/* <div className="box">Box style</div> */}
+            <div style={theme} className="box">This component's in-line styling depends on "theme" state in src-contexts-ThemeContext. </div>
+            <Div className="box">
                 <div>
-                    This component's styling depends on the "theme" state in src-contexts-ThemeContext.
+                    This component's component-based styling also depends on "theme" state, through src-styledComponents-Div.jsx.
                 </div>
-                <div>
-                    Multiple divs inside the div should render appropriately.
-                </div>
-
                 <div>
                     <div>
                         <div>
@@ -71,13 +81,23 @@ const UserThemes = () => {
                     </div>
                 </div>
             </Div>
+            <div>
+                <span>Switch to default theme:</span>
+                <button onClick={defaultTheme}>Click</button>
+            </div>
             {themesArray.map((themeObject) => {
                 return (
-                    <div></div>
+                    <div>
+                        <span>Switch to {themeObject.theme_name}:</span>
+                        <button onClick={() => handleClick(themeObject)}>Click</button>
+                        {/* <div>
+                            {JSON.stringify(themeObject)}
+                        </div> */}
+                    </div>
                 )
             })}
-        </div>
 
+        </div>
     )
 };
 export default UserThemes;
