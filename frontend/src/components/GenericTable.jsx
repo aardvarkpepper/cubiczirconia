@@ -63,6 +63,9 @@ const GenericTable = ({ tableData = ([]), tableKey="" }) => {
     }
     return (
         <div className="GenericTable">
+            <h1>
+                Frontend GenericTable Component
+            </h1>
             {genericTableOutput()}
         </div>
     )

@@ -1,6 +1,10 @@
 const UserBadges = () => {
     return (
-        <div>Front End UserBadges</div>
+        <div>
+            <h1>
+                Frontend UserBadges Page
+            </h1>
+        </div>
     )
 };
 export default UserBadges;

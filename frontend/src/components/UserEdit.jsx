@@ -50,7 +50,7 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUs
     };
 
     const handleDelete = () => {
-        if(user.user_access_level < 4) {
+        if (user.user_access_level < 4) {
             alert("Access level 4 required to delete user record.")
         } else {
             const response = window.confirm("Really delete this record?")
@@ -65,15 +65,17 @@ const UserEdit = ({ userDetailsKeysArray, userDetails, setUserDetails, setShowUs
 
     return (
         <div>
-            <div>Front End UserEdit</div>
+            <h1>
+                Frontend UserEdit Component
+            </h1>
             <div>ID numbers may not be changed.</div>
             <div>The ID number for this record is {userDetails.user_id}</div>
-            <GenericForm 
-            formDataObject = {userDetails}
-            setFormDataObject={setUserDetails}
-            formDataObjectKeysArray = {userDetailsKeysArray}
-            handleSubmit={handleSubmit}
-            formType="Edit Details"
+            <GenericForm
+                formDataObject={userDetails}
+                setFormDataObject={setUserDetails}
+                formDataObjectKeysArray={userDetailsKeysArray}
+                handleSubmit={handleSubmit}
+                formType="Edit Details"
             />
             <button onClick={handleDelete}>Delete Record</button>
         </div>

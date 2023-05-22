@@ -1,6 +1,10 @@
 const BadgeEdit = () => {
     return (
-        <div>Front End BadgeEdit</div>
+        <div>
+            <h1>
+                Frontend BadgeEdit Page
+            </h1>
+        </div>
     )
 };
 export default BadgeEdit;

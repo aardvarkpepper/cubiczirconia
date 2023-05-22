@@ -3,9 +3,9 @@ import { snakeCaseToTitleCase } from "../utils/utils.js";
 const UserDetails = ({userDetailsKeysArray, userDetails}) => {
     return (
         <div>
-            <div>
-                Front End UserDetails
-            </div>
+            <h1>
+                Frontend UserDetails Component
+            </h1>
             <table>
                 <tbody>
                     {userDetailsKeysArray.map((keyElement) => {

@@ -1,6 +1,10 @@
 const BadgeUsers = () => {
     return (
-        <div>Front End BadgesUsers</div>
+        <div>
+            <h1>
+                Frontend BadgeUsers Page
+            </h1>
+        </div>
     )
 };
 export default BadgeUsers;

@@ -1,6 +1,10 @@
 const BadgesIndex = () => {
     return (
-        <div>Front End BadgesIndex</div>
+        <div>
+            <h1>
+                Frontend BadgesIndex Page
+            </h1>
+        </div>
     )
 };
 export default BadgesIndex;

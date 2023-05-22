@@ -59,7 +59,7 @@ const UserCreate = () => {
 
     useEffect(() => {
         setUserObjectKeysArray(Object.keys(newUser));
-    },[newUser])
+    }, [newUser])
 
     useEffect(() => {
         axios.get(`${API}/users`)
@@ -71,19 +71,19 @@ const UserCreate = () => {
 
     const addUser = async (userToAdd) => {
         axios
-        .post(`${API}/users`, userToAdd)
-        .then(
-            (response) => {
-                navigate(`/users/${response.data.user_id}`);
-            },
-            (error) => console.error(error)
-        )
-        .catch((c) => console.warn("catch", c));
+            .post(`${API}/users`, userToAdd)
+            .then(
+                (response) => {
+                    navigate(`/users/${response.data.user_id}`);
+                },
+                (error) => console.error(error)
+            )
+            .catch((c) => console.warn("catch", c));
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(user.user_access_level < 2) {
+        if (user.user_access_level < 2) {
             alert("Access level 2 required to create new user.")
         } else if (userList.filter(aUser => aUser.user_login_name === newUser.user_login_name).length > 0) {
             alert("Login name already in use.  Please select another login name.")
@@ -94,7 +94,9 @@ const UserCreate = () => {
 
     return (
         <div>
-            <div>Front End UserCreate</div>
+            <h1>
+                Frontend UserCreate Page
+            </h1>
             <GenericForm
                 formDataObject={newUser}
                 formDataObjectKeysArray={userObjectKeysArray}

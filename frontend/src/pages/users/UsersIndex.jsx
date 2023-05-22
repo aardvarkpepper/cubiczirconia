@@ -19,8 +19,10 @@ const UsersIndex = () => {
 
     return (
         <div>
-            <div>Front End UsersIndex</div>
-            <GenericTable tableData={users} tableKey={"users"}/>
+            <h1>
+                Frontend UsersIndex Page
+            </h1>
+            <GenericTable tableData={users} tableKey={"users"} />
         </div>
     )
 };

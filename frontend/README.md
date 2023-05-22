@@ -207,6 +207,8 @@ User Login should prevent duplicate usernames on edit as well.  Just create for 
     Reconsider UserThemes.jsx.  See how the axios call has nothing to do with any front end component.  It's just a call, it's just data.  ID is pulled from URL, then put into a call to the backend; apart from that there's no interaction between front and backend and database.
     ***** END THEME NOTES
 
+    Cleanup files (e.g. userSettings is now component, not a page.)
+
  -->
 
 # User App Front End

@@ -8,6 +8,7 @@ const Div = ({children}) => {
 
     return (
         <div style={{theme}}>
+            <h1>"Div" Styled Component</h1>
             {React.Children.map(children, child => (
                 <div style={theme}>{child}</div>
             ))}

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
-import { ThemeContext } from '../../contexts/ThemeContext';
-import Div from "../../styledComponents/Div.jsx";
+import { ThemeContext } from '../contexts/ThemeContext';
+import Div from "../styledComponents/Div.jsx";
 import "./UserThemes.css";
 
 const API = process.env.REACT_APP_API_URL;
@@ -66,7 +66,9 @@ const UserThemes = () => {
 
     return (
         <div>
-            <div>Front End UserThemes</div>
+            <h1>
+                Frontend UserThemes Component
+            </h1>
             {/* <div className="box">Box style</div> */}
             <div style={theme} className="userThemesExampleBox">
                 This component's in-line styling depends on "theme" state in src-contexts-ThemeContext. Normal CSS priority applies; in-line styling of a component overrides className styling.

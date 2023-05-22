@@ -58,7 +58,11 @@ const UserShow = () => {
 
     return (
         <div>
-            <div>Front End UserShow</div>
+            <div>
+                <h1>
+                    Frontend UserShow Page
+                </h1>
+            </div>
             {showUserDetailsOrUserEdit()}
             <button onClick={toggleDetailsVsEdit}>{toggleButtonText()}</button>
         </div>

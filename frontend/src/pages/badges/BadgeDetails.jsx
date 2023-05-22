@@ -1,6 +1,10 @@
 const BadgeDetails = () => {
     return (
-        <div>Front End BadgeDetails</div>
+        <div>
+            <h1>
+                Frontend BadgeDetails Page
+            </h1>
+        </div>
     )
 };
 export default BadgeDetails;
