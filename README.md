@@ -6,7 +6,7 @@ User access levels and passwords are implemented at a basic level.  Guest login 
 
 To access create, update, and delete functionality, login as bruce_wayne, password batman123.  This user also has additional themes (under "Settings" in navbar.
 
-Theme settings change color palette, in the Settings page, but also in the '"Div" styled component on the Home page.  The implementation is similar to Bootstrap; it's much faster to import and write "<Div>" than it is to call useContext, reference useContext variables and/or methods with a regular "<div>", and besides makes for much cleaner code.  If you see a "<Div>", you know the user's theme is applied in it, without having to make sense of exactly what inline styling is or referencing CSS or such, or read additional lines of code.
+Theme settings change color palette, in the Settings page, but also in the '"Div" styled component on the Home page.  The implementation is similar to Bootstrap; it's much faster to import and write "Div" (with capital letter) than it is to call useContext, reference useContext variables and/or methods with a regular "div", and besides makes for much cleaner code.  If you see a "<Div>", you know the user's theme is applied in it, without having to make sense of exactly what inline styling is or referencing CSS or such, or read additional lines of code for imports.
 
 To ease developers getting into the application, pages and components are labeled.  For example, the Home page reads "Front End Home", then '"Div" Styled Component', as a div styled component is rendered inside the Home page, to show how a user's color theme applies in different elements.
 
