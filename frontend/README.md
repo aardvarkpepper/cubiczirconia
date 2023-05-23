@@ -34,23 +34,23 @@ Snake to camel, camel to snake.  Look at "humps" package for implementation, but
 *****
 
 *****
-Ask about implmenetation and storing the entire users array in state.  Can just toggle, really, and have various checks.  INDUSTRY PRACTICES FOR STATE; have loads of state components just floating around, some local, some global-ish (user, theme).  Instead of separate axios call to individual element, reference the entire element list stored in state, with sort functions etc.  But this is not commonly done?
+Ask about implmenetation and storing the entire users array in state.  Can just toggle, really, and have various checks.  INDUSTRY PRACTICES FOR STATE; have loads of state components just floating around, some local, some global-ish (user, theme).  Instead of separate  call to individual element, reference the entire element list stored in state, with sort functions etc.  But this is not commonly done?
 
 redux, mobx
 *****
 
 Fix "generictable" reference to reference id.  As Object.keys order is not guaranteed (though apparently should be consistent), consider switch to Map or Set data structure.
 
-For now, use Axios call to individual (record) and specifying by user (rather than dynamically for badges and themes) as dynamic Link routing not covered in class, and insufficient time to research and implement new feature.  Break Axios calls into api folder.
+For now, use  call to individual (record) and specifying by user (rather than dynamically for badges and themes) as dynamic Link routing not covered in class, and insufficient time to research and implement new feature.  Break  calls into api folder.
 
 Look again for how to use multiple params.  From different components?  From same component?
 
 Mystery:  Why does the GenericTable css styling apply to the UserDetails table?
 
-Index passes variable down to "detail".  user setState set to variable.  If variable not set, then axios call to retrieve data.  (such as if URL called directly).  Render component to indicate if axios was called or not.
+Index passes variable down to "detail".  user setState set to variable.  If variable not set, then  call to retrieve data.  (such as if URL called directly).  Render component to indicate if  was called or not.
 
 *****
-Call axios 20 units at a time - limit what goes in state, LIMIT RENDERING thousands potential components instead only 40 at a tie or whatever.
+Call  20 units at a time - limit what goes in state, LIMIT RENDERING thousands potential components instead only 40 at a tie or whatever.
 Is this backend or frontend?  Or is it a state management thing (get the entire list with one call, then get 20 queries at a time to solve rendering issues?)  It is a rendering, not memory issue?
 
 sQL LIMIT OFFSET 48 ETC.
@@ -58,7 +58,7 @@ sQL LIMIT OFFSET 48 ETC.
 
 Passing props.location.value through React Link does not work when page refreshed or using back/forwards buttons on browser.
 
-In UsersIndex, axios is called then props passed to sub-component "GenericTable".  But where we access individual users, accessing GenericForm, there is no parent component.  Perhaps I should create one.  It does seem logical, though this is not what we did in class.  
+In UsersIndex,  is called then props passed to sub-component "GenericTable".  But where we access individual users, accessing GenericForm, there is no parent component.  Perhaps I should create one.  It does seem logical, though this is not what we did in class.  
 
 Add escape clauses for UserEdit and UserDetails in case somehow data passed is null.  Though it shouldn't happen.  How can the component even be called outside of the wrapping context?  And the wrapping context provides the variable.  But it's useful in case someone else uses the component improperly, perhaps?  Encapsulation?
 
@@ -199,14 +199,14 @@ User Login should prevent duplicate usernames on edit as well.  Just create for 
 
     /*
     Set the fields I want.  Pull the ones I don't want out
-    of the axios call with deconstruction.  Set the remainder
-    to state.  Aggregate multiple axios calls.
+    of the  call with deconstruction.  Set the remainder
+    to state.  Aggregate multiple  calls.
 
     Find and replace all components like div with Div,
     as Bootstrap does.
     */
 
-    Reconsider UserThemes.jsx.  See how the axios call has nothing to do with any front end component.  It's just a call, it's just data.  ID is pulled from URL, then put into a call to the backend; apart from that there's no interaction between front and backend and database.
+    Reconsider UserThemes.jsx.  See how the  call has nothing to do with any front end component.  It's just a call, it's just data.  ID is pulled from URL, then put into a call to the backend; apart from that there's no interaction between front and backend and database.
     ***** END THEME NOTES
 
     Cleanup files (e.g. userSettings is now component, not a page. - fixed, but future)
